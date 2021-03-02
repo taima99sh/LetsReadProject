@@ -1,0 +1,6 @@
+framework module Pods_LetsRead {
+  umbrella header "Pods-LetsRead-umbrella.h"
+
+  export *
+  module * { export * }
+}

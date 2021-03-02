@@ -11,6 +11,8 @@ import UIKit
 class AboutReadingViewController: UIViewController {
     
     @IBOutlet weak var txtView: UITextView!
+    
+    var id: String = "68527"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,27 @@ class AboutReadingViewController: UIViewController {
 }
 extension AboutReadingViewController {
     func setupView(){
-        txtView.text = "\r\n\r\n\t\r\n\r\n\r\n&nbsp;مهارات القراءة الخمس الأساسية\r\n\r\nتهدف الكتب والقصص المدرجة ضمن منصة &quot;يلا نقرأ&quot; والأنشطة المتربطة بها على تنمية مهارات القراءة الخمس الأساسية[1]:\r\n\r\n1-&nbsp;الوعي الصوتي: المهارة التي تندرج تحت علم الأصوات اللغوية والتي تتضمن القدرة على سماع الأصوات المنفردة (أصوات الحروف)، وتعريفها، والتلاعب بها.\r\n\r\n2- الطريقة الصوتية: استراتيجيات لفك ترميز الكلمات[2] ذات المقاطع المتعددة والتي تتضمن مورفولوجي )علم الصرف( ومعلومات حول المعنى، واللفظ، وأجزاء الكلام للكلمات المكتسبة من معرفة السوابق، والجذور، واللواحق.\r\n\r\n3- الطلاقة: القدرة على قراءة النص بسرعة وبدقة مع التعبير.\r\n\r\n4- المفردات: تُشير إلى جميع الكلمات في لغتنا، وعلى المرء معرفة حصيلة من كلمات حتى يتمكن من التواصل بشكل فعّال. وتُعتبر المفردات مهمة لفهم المقروء، لأن القرّاء لا يستطيعون فهم ما يقرؤون بدون معرفة معظم معاني الكلمات التي يقرؤون".html2Attributed?.string
+        
     }
     func localized(){}
     func setupData(){}
-    func fetchData(){}
+    func fetchData(){
+
+        let request = BaseRequest()
+        request.url = "PageDetails/\(self.id)"
+        request.method = .get
+        self.showIndicator()
+        RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
+            self.hideIndicator()
+            let data = htmlPagesModel.init(fromJson: json)
+            if data.success {
+                if let page = data.pages {
+                    self.txtView.text = page.pBody.html2Attributed?.string ?? ""
+                    self.title = page.pTitle ?? ""
+                }
+                return
+            }
+            self.ErrorMessage(title: "", errorbody: data.message)
+        }
+    }
 }

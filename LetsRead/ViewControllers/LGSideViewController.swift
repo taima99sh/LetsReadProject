@@ -13,7 +13,7 @@ var isUserLogin: Bool = false
 
 class LGSideViewController: LGSideMenuController {
     
-    let rootVC = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationViewController") 
+    let rootVC = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "MainNavigationViewController") as! MainNavigationViewController
     
     let rightVC = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "MenuViewController")
 
@@ -37,7 +37,7 @@ extension LGSideViewController {
     func setupView() {
         self.rootViewController = self.rootVC
         self.rightViewController = self.rightVC
-        self.rightViewWidth = UIScreen.main.bounds.size.width * 0.29
+        self.rightViewWidth = 250
 //        self.rightViewPresentationStyle = .slideBelow
     }
      

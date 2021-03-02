@@ -10,104 +10,111 @@ import UIKit
 import AVFoundation
 
 class RecordingAudioViewController: UIViewController {
-    //@IBOutlet weak var recordingButton: UIButton!
     
-    var recordButton: UIButton!
-    var stackView: UIStackView!
+    @IBOutlet weak var btnRecording: UIButton!
+    @IBOutlet weak var btnRemove: UIButton!
+    @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var btnSend: UIButton!
+    @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var playbackSlider: UISlider!
+    @IBOutlet weak var lblOverallDuration: UILabel!
+    //@IBOutlet weak var lblcurrentText: UILabel!
+    
+    
+    var player:AVPlayer?
+    var playerItem:AVPlayerItem?
     var recordingSession: AVAudioSession!
     var whistleRecorder: AVAudioRecorder!
     var whistlePlayer: AVAudioPlayer!
-    var playButton: UIButton!
+    var audioPlayer: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        playingAudio()
-        
-        title = ""
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addWhistle))
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
-
-        title = "تسجيل"
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Record", style: .plain, target: nil, action: nil)
-
+        //setupData()
+        playerView.isHidden = true
         recordingSession = AVAudioSession.sharedInstance()
-
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
                     if allowed {
-                        self.loadRecordingUI()
+                        print("Allowed")
                     } else {
-                        self.loadFailUI()
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             }
         } catch {
-            self.loadFailUI()
+            print(error)
         }
     }
 
-    func loadRecordingUI() {
-        recordButton = UIButton()
-        recordButton.translatesAutoresizingMaskIntoConstraints = false
-        recordButton.setTitle("Tap to Record", for: .normal)
-        recordButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
-        recordButton.addTarget(self, action: #selector(recordTapped), for: .touchUpInside)
-        stackView.addArrangedSubview(recordButton)
-        
-        playButton = UIButton()
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.setTitle("Tap to Play", for: .normal)
-        playButton.isHidden = true
-        playButton.alpha = 0
-        playButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
-        playButton.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
-        stackView.addArrangedSubview(playButton)
-    }
-
-    func loadFailUI() {
-        let failLabel = UILabel()
-        failLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        failLabel.text = "Recording failed: please ensure the app has access to your microphone."
-        failLabel.numberOfLines = 0
-
-        stackView.addArrangedSubview(failLabel)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    
+    @IBAction func btnPlay(_ sender: Any) {
+        self.playTapped()
+        print("play Button")
+    }
+    
+    @IBAction func btnSend(_ sender: Any) {
+        sendRecord()
+    }
+        
+    @IBAction func btnRecord(_ sender: Any) {
+        self.recordTapped()
+    }
+    
+    @IBAction func btnDismiss(_ sender: Any) {
+        self.player?.rate = 0.0
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 extension RecordingAudioViewController {
-    func setupView(){}
+    func setupView(){
+        
+        
+        
+    }
     func localized(){}
-    func setupData(){}
+    func setupData(_ url: URL) {
+        
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url)
+        player = AVPlayer(playerItem: playerItem)
+        playbackSlider.addTarget(self, action: #selector(self.playbackSliderValueChanged(_:)), for: .valueChanged)
+        let duration : CMTime = playerItem.asset.duration
+        let seconds : Float64 = CMTimeGetSeconds(duration)
+        lblOverallDuration.text = self.stringFromTimeInterval(interval: seconds)
+        playbackSlider.maximumValue = Float(seconds)
+        playbackSlider.isContinuous = true
+        
+        
+        
+        player!.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main) { (CMTime) -> Void in
+            if self.player!.currentItem?.status == .readyToPlay {
+                let time : Float64 = CMTimeGetSeconds(self.player!.currentTime());
+                self.playbackSlider.value = Float ( time );
+            }
+            
+            let playbackLikelyToKeepUp = self.player?.currentItem?.isPlaybackLikelyToKeepUp
+            if playbackLikelyToKeepUp == false{
+                print("IsBuffering")
+
+            } else {
+                print("Buffering completed")
+
+            }
+            
+        }
+    }
     func fetchData(){}
     
     @objc func addWhistle() {
         let vc = RecordingAudioViewController()
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    override func loadView() {
-        view = UIView()
-
-        view.backgroundColor = UIColor.gray
-
-        stackView = UIStackView()
-        stackView.spacing = 30
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = UIStackView.Distribution.fillEqually
-        stackView.alignment = .center
-        stackView.axis = .vertical
-        view.addSubview(stackView)
-
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     class func getDocumentsDirectory() -> URL {
@@ -117,29 +124,21 @@ extension RecordingAudioViewController {
     }
 
     class func getWhistleURL() -> URL {
-        return getDocumentsDirectory().appendingPathComponent("whistle.m4a")
+        return getDocumentsDirectory().appendingPathComponent("record.m4a")
     }
     
-    
     func startRecording() {
-        // 1
-        view.backgroundColor = UIColor(red: 0.6, green: 0, blue: 0, alpha: 1)
 
-        // 2
-        recordButton.setTitle("Tap to Stop", for: .normal)
-        // 3
+        btnRecording.setTitle("إيقاف", for: .normal)
         let audioURL = RecordingAudioViewController.getWhistleURL()
         print(audioURL.absoluteString)
-        // 4
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
-
         do {
-            // 5
             whistleRecorder = try AVAudioRecorder(url: audioURL, settings: settings)
             whistleRecorder.delegate = self
             whistleRecorder.record()
@@ -147,70 +146,100 @@ extension RecordingAudioViewController {
             finishRecording(success: false)
         }
     }
-    
 }
 
 extension RecordingAudioViewController: AVAudioRecorderDelegate {
+    
     func finishRecording(success: Bool) {
-        if playButton.isHidden {
+        if playerView.isHidden {
             UIView.animate(withDuration: 0.35) { [unowned self] in
-                self.playButton.isHidden = false
-                self.playButton.alpha = 1
+                self.playerView.isHidden = false
+                //self.playButton.alpha = 1
             }
         }
-
-        view.backgroundColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1)
-
+        
         whistleRecorder.stop()
         whistleRecorder = nil
 
         if success {
-            recordButton.setTitle("Tap to Re-record", for: .normal)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
+            btnRecording.setTitle("إعادة التسجيل", for: .normal)
         } else {
-            recordButton.setTitle("Tap to Record", for: .normal)
-
-            let ac = UIAlertController(title: "Record failed", message: "There was a problem recording your whistle; please try again.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
+            btnRecording.setTitle("تسجيل", for: .normal)
         }
-    }
-    
-    @objc func nextTapped() {
     }
     
     @objc func playTapped() {
         let audioURL = RecordingAudioViewController.getWhistleURL()
-
         do {
-            whistlePlayer = try AVAudioPlayer(contentsOf: audioURL)
-            whistlePlayer.play()
+            setupData(audioURL)
+            if player?.rate == 0
+            {
+                player!.play()
+                //self.ButtonPlay.isHidden = true
+                //self.loadingView.isHidden = false
+                btnPlay.setImage(UIImage(systemName: "playpause.fill"), for: UIControl.State.normal)
+            } else {
+                player!.pause()
+                btnPlay.setImage(UIImage(named: "play.fill"), for: UIControl.State.normal)
+            }
+//            audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
+//            audioPlayer?.play()
         } catch {
-            let ac = UIAlertController(title: "Playback failed", message: "There was a problem playing your whistle; please try re-recording.", preferredStyle: .alert)
-            
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
+            self.ErrorMessage(title: "", errorbody: "Playback failed")
         }
+        
     }
     
     @objc func recordTapped() {
         
-        if !playButton.isHidden {
+        if !playerView.isHidden {
             UIView.animate(withDuration: 0.35) { [unowned self] in
-                self.playButton.isHidden = true
-                self.playButton.alpha = 0
+                self.playerView.isHidden = true
             }
         }
         if whistleRecorder == nil {
             startRecording()
-            if !playButton.isHidden {
+            if !playerView.isHidden {
                 UIView.animate(withDuration: 0.35) { [unowned self] in
-                    self.playButton.isHidden = true
-                    self.playButton.alpha = 0
+                    self.playerView.isHidden = true
                 }
             }
         } else {
             finishRecording(success: true)
+        }
+    }
+    
+    func sendRecord() {
+        
+        let stID = UserProfile.shared.userID ?? 0
+        var dic: [String: Any] = [
+            "st_id": "\(stID)" ,
+            "story_id": "317",
+            "task_id" : "1733"
+        ]
+        let request = BaseRequest()
+        request.url = "uploadSound"
+        request.method = .post
+        let file = BaseFile()
+        file.name = "record"
+        file.type = .audio
+        let audioURL = RecordingAudioViewController.getWhistleURL()
+        if let audioFile: Data = try? Data (contentsOf: audioURL) {
+            print("")
+            dic["audio_blob"] = audioFile
+            request.parameters = dic
+            file.data = audioFile
+            request.files.append(file)
+        }
+        
+        RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
+            let data = GeneralResponse.init(fromJson: json)
+            if data.success {
+                self.SuccessMessage(title: "", successbody: data.message ?? "نجاح")
+                return
+            }
+            self.ErrorMessage(title: "", errorbody: data.message ?? "فشل")
+            print("")
         }
     }
     
@@ -220,19 +249,31 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
         }
     }
     
-    func playingAudio() {
-        let fileURL = Bundle.main.url(forResource: "1595679044-1", withExtension: "mp3")!
-       //let audioURL = RecordingAudioViewController.getWhistleURL()
-        do {
-            let whistlePlayer = try AVAudioPlayer(contentsOf: fileURL)
-            whistlePlayer.play()
-            
+    // SLIDER FUNCTION
+
+    @objc func playbackSliderValueChanged(_ playbackSlider:UISlider)
+    {
+        let seconds : Int64 = Int64(playbackSlider.value)
+        let targetTime:CMTime = CMTimeMake(value: seconds, timescale: 1)
+        
+        player!.seek(to: targetTime)
+        
+        if player!.rate == 0
+        {
+            player?.play()
         }
-        catch {
-            print(error)
-        }
-       
     }
+    
+    //
+    func stringFromTimeInterval(interval: TimeInterval) -> String {
+        
+        let interval = Int(interval)
+        let seconds = interval % 60
+        let minutes = (interval / 60) % 60
+        let hours = (interval / 3600)
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
 }
 
 

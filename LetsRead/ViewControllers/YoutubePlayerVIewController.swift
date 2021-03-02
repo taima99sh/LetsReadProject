@@ -13,9 +13,17 @@ class YoutubePlayerVIewController: UIViewController {
     
     @IBOutlet weak var playerView: YTPlayerView!
     
+    var url: String = ""
+    var id :String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        playerView.load(withVideoId: "A2m4wzDH05Q")
+        if let sIndex = url.lastIndex(of: "=") {
+            let index = url.index(after: sIndex)
+            id = String(url.suffix(from: index))
+        }
+        self.showIndicator()
+        playerView.load(withVideoId: id)
+        self.hideIndicator()
         setupView()
         localized()
         setupData()

@@ -1,0 +1,56 @@
+PODS:
+  - Alamofire (5.0.5)
+  - DZNEmptyDataSet (1.8.1)
+  - IQKeyboardManagerSwift (6.5.0)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
+  - LGSideMenuController (2.1.1)
+  - MBProgressHUD (1.2.0)
+  - SVProgressHUD (2.2.5)
+  - SwiftMessages (9.0.0):
+    - SwiftMessages/App (= 9.0.0)
+  - SwiftMessages/App (9.0.0)
+  - SwiftyJSON (5.0.0)
+  - youtube-ios-player-helper (1.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.2)
+  - DZNEmptyDataSet
+  - IQKeyboardManagerSwift (= 6.5.0)
+  - Kingfisher (= 5.13.2)
+  - LGSideMenuController (= 2.1.1)
+  - MBProgressHUD (~> 1.2.0)
+  - SVProgressHUD
+  - SwiftMessages
+  - SwiftyJSON (= 5.0.0)
+  - youtube-ios-player-helper
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DZNEmptyDataSet
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - LGSideMenuController
+    - MBProgressHUD
+    - SVProgressHUD
+    - SwiftMessages
+    - SwiftyJSON
+    - youtube-ios-player-helper
+
+SPEC CHECKSUMS:
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  IQKeyboardManagerSwift: 6cd19976c6e871907c4ed9127c2d3affdd4defc2
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
+  LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftMessages: 55274ca3a239062398603008ed81924cfd1fe798
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
+
+PODFILE CHECKSUM: 4666168c9e05fe3ba41e544bc1a1e0941c028bb1
+
+COCOAPODS: 1.10.1

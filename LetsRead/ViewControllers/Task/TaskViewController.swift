@@ -7,91 +7,120 @@
 //
 
 import UIKit
-import AVFoundation
+import AVKit
 
 class TaskViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var btnToRecording: UIButton!
+
+    var vc1: UINavigationController!
+    var vc2: QuestionsViewController!
+    var vc1Active : Bool = true
+    var task: Previou?
     
-    var Taskid: String = ""
-    
-    var audioPlayer = AVAudioPlayer()
+    var audioPlayer: AVAudioPlayer?
     override func viewDidLoad() {
         super.viewDidLoad()
-        play()
+        //play()
+        //setupData()
         getPDF()
         localized()
-        setupData()
         fetchData()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.lblTitle.text = "    \(task?.storyTitle ?? "untitled")    "
+        setupData()
+    }
+    
+    @IBAction func btnListen(_ sender: Any) {
+        if let task = task {
+            let videoURLString = task.storyListen ?? ""
+            let urlString = videoURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            if let url = URL(string: urlString) {
+                let player = AVPlayer(url: url)
+                  let playerViewController = AVPlayerViewController()
+                  playerViewController.player = player
+                
+                self.present(playerViewController, animated: true) {
+                    player.play()
+                  }
+            }
+        }
+    }
+    
+    @IBAction func btnRead(_ sender: Any) {
+        self.btnToRecording.isHidden = false
+        if !vc1Active  {
+            for sView in self.containerView.subviews {
+                sView.removeFromSuperview()
+            }
+            vc1Active = true
+            vc1.view.frame = self.containerView.bounds
+            //self.getPDF()
+            self.containerView.addSubview(vc1.view)
+        }
+    }
+    
+    
+    @IBAction func btnToRecording(_ sender: Any) {
+    }
+    
+    @IBAction func btnQuestions(_ sender: Any) {
+        self.btnToRecording.isHidden = true
+        if vc1Active {
+            for sView in self.containerView.subviews {
+                sView.removeFromSuperview()
+            }
+        vc1Active = false
+        vc2.view.frame = self.containerView.bounds
+            self.containerView.addSubview(vc2.view)
+        }
     }
 }
 
 extension TaskViewController {
-    
     func getPDF(){
-        let url = URL(string: "http://clients.intertech.ps/yallaneqra/public/files/stories/pdfs/story_305/103020-whose-voice-is-this.pdf")
-        FileDownloader.loadFileAsync(url: url!) { (path, error) in
-            print("PDF File downloaded to : \(path)")
-            DispatchQueue.main.async {
-                let fileURL = Bundle.main.url(forResource: "103020-whose-voice-is-this", withExtension: "pdf")!
-                if let pdfViewController = PDFViewController(fileURL: fileURL, hasCoverPage: false) {
-                    //self.addChild(pdfViewController)
-                   self.addChild(pdfViewController)
-                    pdfViewController.view.backgroundColor = .white
-                   pdfViewController.view.frame = self.containerView.bounds
-                   self.containerView.addSubview(pdfViewController.view)
+        if let obj = self.task {
+            let test = obj.storyPdf ?? ""
+            let urlString = test.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            if let url = URL(string: urlString) {
+                self.showIndicator()
+                FileDownloader.loadFileAsync(url: url) { (path, error) in
+                    print("PDF File downloaded to : \(String(describing: path))")
+                    DispatchQueue.main.async {
+                        self.hideIndicator()
+                        let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                        let destinationUrl = documentsDirectoryURL.appendingPathComponent(url.lastPathComponent)
+                        if let pdfViewController = PDFViewController(fileURL: destinationUrl, hasCoverPage: false, lang: self.task?.storyLang ?? 0) {
+                            //pdfViewController.lang
+                            //vc1.setroo
+                           let navigationController = UINavigationController(rootViewController: pdfViewController)
+                            self.vc1.setViewControllers([pdfViewController], animated: true)
+                            self.addChild(self.vc1)
+                           self.vc1.view.frame = self.containerView.bounds
+                           self.vc1.setNavigationBarHidden(true, animated: false)
+                           self.containerView.addSubview(self.vc1.view)
+                            self.vc1.didMove(toParent: self)
+                        }
+                    }
                 }
             }
         }
-    }
-    
-    func savePdf(urlString:String, fileName:String) {
-        DispatchQueue.main.async {
-            let url = URL(string: urlString)
-            let pdfData = try? Data.init(contentsOf: url!)
-            let resourceDocPath = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last! as URL
-            let pdfNameFromUrl = "YourAppName-\(fileName).pdf"
-            let actualPath = resourceDocPath.appendingPathComponent(pdfNameFromUrl)
-            do {
-                try pdfData?.write(to: actualPath, options: .atomic)
-                print("pdf successfully saved!")
-            } catch {
-                print("Pdf could not be saved")
-                self.ErrorMessage(title: "", errorbody: "file does not exist")
-            }
-        }
-    }
+   }    
     func localized(){}
-    func setupData(){}
+    func setupData(){
+        vc2 = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "QuestionsViewController") as! QuestionsViewController
+        vc1 = UINavigationController()
+        vc2.questionArr = task?.questions ?? []
+        vc2.storyId = "\(task?.tsStory ?? 0)"
+        vc2.taskId = "\(task?.tsId ?? 0)"
+        self.addChild(vc2)
+    }
     func fetchData(){}
     
-    func play() {
-        
-        if let audioUrl = URL(string: "http://clients.intertech.ps/yallaneqra/public/files/audios/1595679044-1.mp3") {
-            
-            FileDownloader.loadFileAsync(url: audioUrl) { (url, error) in
-                DispatchQueue.main.async {
-                    let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                    
-                    let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent)
-                    print("playing")
-                    do {
-                        self.audioPlayer = try AVAudioPlayer(contentsOf: destinationUrl)
-                        print("")
-                    } catch {
-                        
-                        print(error)
-                    }
-
-                }
-         }   
-    }
-}
-    func playinAudio() {
-        
-    }
+    
 }
