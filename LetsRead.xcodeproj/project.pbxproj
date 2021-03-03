@@ -92,6 +92,11 @@
 		A6DA827E25EC840C00064FCA /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA827C25EC840C00064FCA /* VideoCollectionViewCell.swift */; };
 		A6DA827F25EC840C00064FCA /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6DA827D25EC840C00064FCA /* VideoCollectionViewCell.xib */; };
 		A6DA828125ECDE5400064FCA /* SendMessageViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA828025ECDE5300064FCA /* SendMessageViewControlller.swift */; };
+		A6F36B4525EF3A540084FC6D /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F36B4025EF3A540084FC6D /* libmp3lame.a */; };
+		A6F36B4625EF3A540084FC6D /* ExtAudioConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B4125EF3A540084FC6D /* ExtAudioConverter.m */; };
+		A6F36B4B25EF6B1D0084FC6D /* AnswersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B4A25EF6B1D0084FC6D /* AnswersModel.swift */; };
+		A6F36B5425EFA54B0084FC6D /* MessagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B5325EFA54B0084FC6D /* MessagesListViewController.swift */; };
+		A6F36B5625EFA5620084FC6D /* MessagesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B5525EFA5620084FC6D /* MessagesListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,6 +201,16 @@
 		A6DA827C25EC840C00064FCA /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6DA827D25EC840C00064FCA /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
 		A6DA828025ECDE5300064FCA /* SendMessageViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageViewControlller.swift; sourceTree = "<group>"; };
+		A6F36B3F25EF3A540084FC6D /* ExtAudioConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtAudioConverter.h; sourceTree = "<group>"; };
+		A6F36B4025EF3A540084FC6D /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		A6F36B4125EF3A540084FC6D /* ExtAudioConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtAudioConverter.m; sourceTree = "<group>"; };
+		A6F36B4225EF3A540084FC6D /* AudioConverterKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioConverterKit.h; sourceTree = "<group>"; };
+		A6F36B4325EF3A540084FC6D /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		A6F36B4825EF3ABE0084FC6D /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		A6F36B4925EF3BE40084FC6D /* demoConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = demoConvert.swift; path = ../../../demoConvert.swift; sourceTree = "<group>"; };
+		A6F36B4A25EF6B1D0084FC6D /* AnswersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersModel.swift; sourceTree = "<group>"; };
+		A6F36B5325EFA54B0084FC6D /* MessagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListViewController.swift; sourceTree = "<group>"; };
+		A6F36B5525EFA5620084FC6D /* MessagesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListTableViewCell.swift; sourceTree = "<group>"; };
 		BF3164E0E73A85ED808CA636 /* Pods-LetsRead.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsRead.debug.xcconfig"; path = "Target Support Files/Pods-LetsRead/Pods-LetsRead.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3392DD61D3B78FC3ED6BBDE9 /* Pods_LetsRead.framework in Frameworks */,
+				A6F36B4525EF3A540084FC6D /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +272,7 @@
 				A60D8A8325E7CCB400070783 /* VideosDataModel.swift */,
 				A60D8A8525E7CD7E00070783 /* MessageDataModel.swift */,
 				A6AD5A2025EB0631008B80CA /* UserModel.swift */,
+				A6F36B4A25EF6B1D0084FC6D /* AnswersModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				A64F45FE25E4E54700A25654 /* Fonts */,
+				A6F36B4825EF3ABE0084FC6D /* bridge.h */,
+				A6F36B4925EF3BE40084FC6D /* demoConvert.swift */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -311,6 +330,7 @@
 		A64F45E025E4E39D00A25654 /* Utlis */ = {
 			isa = PBXGroup;
 			children = (
+				A6F36B3E25EF3A540084FC6D /* AudioConverterKit */,
 				A6DA826925EB312F00064FCA /* ViedioPlayer */,
 				A64F460F25E51DB400A25654 /* pdfViewer */,
 				A64F45F225E4E4F900A25654 /* commen */,
@@ -394,6 +414,7 @@
 		A64F460325E4F63100A25654 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A6F36B4C25EFA47B0084FC6D /* MessagesList */,
 				A65B448925EE37C300410B17 /* Games */,
 				A6DA827925EBD78200064FCA /* Videos */,
 				A60D8A4D25E79BBC00070783 /* Recorder */,
@@ -532,6 +553,27 @@
 			path = Videos;
 			sourceTree = "<group>";
 		};
+		A6F36B3E25EF3A540084FC6D /* AudioConverterKit */ = {
+			isa = PBXGroup;
+			children = (
+				A6F36B3F25EF3A540084FC6D /* ExtAudioConverter.h */,
+				A6F36B4025EF3A540084FC6D /* libmp3lame.a */,
+				A6F36B4125EF3A540084FC6D /* ExtAudioConverter.m */,
+				A6F36B4225EF3A540084FC6D /* AudioConverterKit.h */,
+				A6F36B4325EF3A540084FC6D /* lame.h */,
+			);
+			path = AudioConverterKit;
+			sourceTree = "<group>";
+		};
+		A6F36B4C25EFA47B0084FC6D /* MessagesList */ = {
+			isa = PBXGroup;
+			children = (
+				A6F36B5325EFA54B0084FC6D /* MessagesListViewController.swift */,
+				A6F36B5525EFA5620084FC6D /* MessagesListTableViewCell.swift */,
+			);
+			path = MessagesList;
+			sourceTree = "<group>";
+		};
 		EE9D3025F21ACFEF0B9F130B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +617,7 @@
 				TargetAttributes = {
 					A64F45C625E4E1D200A25654 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -666,6 +709,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F36B5425EFA54B0084FC6D /* MessagesListViewController.swift in Sources */,
 				A60D8A4A25E789E900070783 /* QuestionsViewController.swift in Sources */,
 				A64F462425E51E0500A25654 /* PDFViewController.swift in Sources */,
 				A64F460C25E504AB00A25654 /* HomeViewController.swift in Sources */,
@@ -689,6 +733,7 @@
 				A64F467D25E6730200A25654 /* DPImageView+LettersExtension.swift in Sources */,
 				A6AD5A1F25EB0342008B80CA /* ResponseHandler.swift in Sources */,
 				A64F45CD25E4E1D200A25654 /* SceneDelegate.swift in Sources */,
+				A6F36B4B25EF6B1D0084FC6D /* AnswersModel.swift in Sources */,
 				A60D8A5525E7C28F00070783 /* AboutReadingViewController.swift in Sources */,
 				A64F468A25E6730F00A25654 /* UserProfile.swift in Sources */,
 				A6DA826B25EB31B000064FCA /* VideoPlayerView.swift in Sources */,
@@ -703,6 +748,7 @@
 				A60D8A8225E7CC6F00070783 /* GameDataModel.swift in Sources */,
 				A64F468725E6730200A25654 /* UINavigationBarExtension.swift in Sources */,
 				A60D8A5325E7BE9B00070783 /* FromWebVewController.swift in Sources */,
+				A6F36B5625EFA5620084FC6D /* MessagesListTableViewCell.swift in Sources */,
 				A64F468625E6730200A25654 /* UITabBarExtension.swift in Sources */,
 				A64F467725E672F300A25654 /* GeneralCollectionViewCell.swift in Sources */,
 				A64F461E25E51E0500A25654 /* CGPDFPage+Extension.swift in Sources */,
@@ -731,6 +777,7 @@
 				A6DA827B25EBD79900064FCA /* VideosListViwController.swift in Sources */,
 				A6DA827225EBB0C900064FCA /* MessageTableViewCell.swift in Sources */,
 				A6AD5A2125EB0631008B80CA /* UserModel.swift in Sources */,
+				A6F36B4625EF3A540084FC6D /* ExtAudioConverter.m in Sources */,
 				A64F467825E672F300A25654 /* GeneralCollectionViewData.swift in Sources */,
 				A64F468925E6730200A25654 /* Localizable.swift in Sources */,
 				A64F467C25E6730200A25654 /* HexColorExtension.swift in Sources */,
@@ -881,14 +928,21 @@
 			baseConfigurationReference = BF3164E0E73A85ED808CA636 /* Pods-LetsRead.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LetsRead/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LetsRead/Utlis/AudioConverterKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.taima.net.LetsRead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/LetsRead/SupportFiles/bridge.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -899,14 +953,20 @@
 			baseConfigurationReference = 04032FACA97D089897234C3B /* Pods-LetsRead.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LetsRead/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LetsRead/Utlis/AudioConverterKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.taima.net.LetsRead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/LetsRead/SupportFiles/bridge.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

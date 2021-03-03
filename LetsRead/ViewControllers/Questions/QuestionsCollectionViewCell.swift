@@ -11,12 +11,12 @@ import UIKit
 class QuestionsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var lblChoice: UILabel!
+    @IBOutlet weak var colorView: UIView!
     
     var object: String?
-    
     func configureCell() {
         if let obj = object {
-            lblChoice.text = obj
+           lblChoice.text = obj
         }
     }
     

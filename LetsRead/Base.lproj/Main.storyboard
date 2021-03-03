@@ -324,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlQ-Rv-Hya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722" y="-1943"/>
+            <point key="canvasLocation" x="524" y="-1355"/>
         </scene>
         <!--Recording Audio View Controller-->
         <scene sceneID="5P5-97-DQ6">
@@ -551,16 +551,68 @@
             </objects>
             <point key="canvasLocation" x="2269" y="-988"/>
         </scene>
-        <!--View Controller-->
+        <!--الرسائل-->
         <scene sceneID="0FY-9o-FEV">
             <objects>
-                <viewController id="7QJ-n5-xvr" sceneMemberID="viewController">
+                <viewController title="الرسائل" id="7QJ-n5-xvr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wwg-JZ-71q">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c1A-Xb-Qsy">
+                                <rect key="frame" x="52" y="86" width="808" height="299"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessagesListTableViewCell" id="a7c-bf-lO3">
+                                        <rect key="frame" x="0.0" y="28" width="808" height="69.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a7c-bf-lO3" id="k43-2f-nLw">
+                                            <rect key="frame" x="0.0" y="0.0" width="800" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Fs-0z-58I">
+                                                    <rect key="frame" x="8" y="8" width="784" height="53.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="73L-LL-AuB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="784" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="xV6-kP-lO9"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeueW23forSKY-Reg" family="Helvetica Neue W23 for SKY" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cwA-8d-x7T">
+                                                            <rect key="frame" x="0.0" y="30" width="784" height="23.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeueW23forSKY-Reg" family="Helvetica Neue W23 for SKY" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="3Fs-0z-58I" firstAttribute="top" secondItem="k43-2f-nLw" secondAttribute="top" constant="8" id="Fwn-PK-ekF"/>
+                                                <constraint firstAttribute="bottom" secondItem="3Fs-0z-58I" secondAttribute="bottom" constant="8" id="HOD-mJ-R8G"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Fs-0z-58I" secondAttribute="trailing" constant="8" id="JWw-MW-geC"/>
+                                                <constraint firstItem="3Fs-0z-58I" firstAttribute="leading" secondItem="k43-2f-nLw" secondAttribute="leading" constant="8" id="QP3-kT-c5c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="c1A-Xb-Qsy" firstAttribute="top" secondItem="BD0-2Y-BBc" secondAttribute="top" constant="8" id="Fka-C0-3G6"/>
+                            <constraint firstItem="BD0-2Y-BBc" firstAttribute="bottom" secondItem="c1A-Xb-Qsy" secondAttribute="bottom" constant="8" id="K7d-yN-qKp"/>
+                            <constraint firstItem="c1A-Xb-Qsy" firstAttribute="trailing" secondItem="BD0-2Y-BBc" secondAttribute="trailing" constant="8" id="YAr-j0-f0Q"/>
+                            <constraint firstItem="c1A-Xb-Qsy" firstAttribute="leading" secondItem="BD0-2Y-BBc" secondAttribute="leading" constant="8" id="jAk-Cc-Qc5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BD0-2Y-BBc"/>
                     </view>
+                    <navigationItem key="navigationItem" title="الرسائل" prompt=" " id="YJ8-EY-nLA"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5Y-If-sUh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -915,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6Y-hV-urE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="-2114"/>
+            <point key="canvasLocation" x="2010" y="-1694"/>
         </scene>
         <!--Questions View Controller-->
         <scene sceneID="LFU-1A-jgA">
@@ -978,12 +1030,13 @@
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="94" height="47"/>
                                                 <connections>
+                                                    <outlet property="colorView" destination="M02-y8-7GX" id="u8r-5F-0mH"/>
                                                     <outlet property="lblChoice" destination="5wB-zP-gPa" id="bu3-eW-Alt"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nDT-T0-26A">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nDT-T0-26A">
                                         <rect key="frame" x="238.5" y="205" width="331" height="144"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2U-4w-AYg">
@@ -1027,6 +1080,13 @@
                                 </constraints>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="0.0" bottom="0.0" trailing="0.0"/>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsb-LQ-kcw">
+                                <rect key="frame" x="282.5" y="316" width="86" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="أرسل الاجابة">
+                                    <color key="titleColor" name="SecondaryColor"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-YJ-HFh">
                                 <rect key="frame" x="819" y="8" width="25" height="25"/>
                                 <constraints>
@@ -1047,6 +1107,8 @@
                             <constraint firstItem="REh-GJ-tC0" firstAttribute="leading" secondItem="RFC-8s-8V1" secondAttribute="leading" id="Nrf-dr-ZrA"/>
                             <constraint firstItem="RFC-8s-8V1" firstAttribute="bottom" secondItem="REh-GJ-tC0" secondAttribute="bottom" id="Pzi-QN-Ykl"/>
                             <constraint firstItem="O5b-YJ-HFh" firstAttribute="top" secondItem="REh-GJ-tC0" secondAttribute="top" constant="8" id="Rlx-oM-Eem"/>
+                            <constraint firstItem="vsb-LQ-kcw" firstAttribute="leading" secondItem="jhS-sv-PVm" secondAttribute="leading" id="i16-GO-UYO"/>
+                            <constraint firstItem="vsb-LQ-kcw" firstAttribute="bottom" secondItem="jhS-sv-PVm" secondAttribute="bottom" id="lPw-ny-fhN"/>
                             <constraint firstItem="RFC-8s-8V1" firstAttribute="trailing" secondItem="REh-GJ-tC0" secondAttribute="trailing" id="thQ-kd-Udt"/>
                             <constraint firstItem="REh-GJ-tC0" firstAttribute="top" secondItem="RFC-8s-8V1" secondAttribute="top" id="wMd-GD-40U"/>
                         </constraints>

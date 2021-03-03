@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class RecordingAudioViewController: UIViewController {
     
@@ -57,6 +58,7 @@ class RecordingAudioViewController: UIViewController {
     
     @IBAction func btnPlay(_ sender: Any) {
         self.playTapped()
+        //convert()
         print("play Button")
     }
     
@@ -221,12 +223,12 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
         request.url = "uploadSound"
         request.method = .post
         let file = BaseFile()
-        file.name = "record"
+        file.name = "audio_blob"
         file.type = .audio
-        let audioURL = RecordingAudioViewController.getWhistleURL()
+        guard let audioURL = convert() else {return}
         if let audioFile: Data = try? Data (contentsOf: audioURL) {
             print("")
-            dic["audio_blob"] = audioFile
+            //dic["audio_blob"] = audioFile
             request.parameters = dic
             file.data = audioFile
             request.files.append(file)
@@ -273,6 +275,31 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
         let hours = (interval / 3600)
         return String(format: "%02d:%02d", minutes, seconds)
     }
+    
+    
+    func convert() -> URL?{
+        let audioURL = RecordingAudioViewController.getWhistleURL()
+        let inputPath = audioURL.path
+        if let outputURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("output.mp3") {
+            let outputPath = outputURL.path
+            print("Input Path: \(inputPath )")
+            print("Output Path: \(outputPath )")
+
+            let converter = ExtAudioConverter()
+            converter.inputFilePath = inputPath
+            converter.outputFilePath = outputPath
+            converter.outputFormatID = kAudioFormatMPEGLayer3
+            if converter.convert() {
+                print("Done")
+            }
+            return outputURL
+        }
+            return nil
+    }
+    
+    
+
+    
     
 }
 

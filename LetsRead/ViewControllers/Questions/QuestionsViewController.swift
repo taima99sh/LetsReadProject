@@ -16,7 +16,7 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var txtStackView: UIStackView!
     @IBOutlet weak var btnSpeaker: UIButton!
     
-    
+    var isAnswered: Bool = false
     var audioPlayer: AVAudioPlayer?
     var arrIndex: Int = 0
     var choicesArr: [String] = []
@@ -43,7 +43,7 @@ class QuestionsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         localized()
-        getQuestion(self.arrIndex)
+       // getQuestion(self.arrIndex)
         //setupData()
         //fetchData()
         // Do any additional setup after loading the view.
@@ -61,6 +61,8 @@ class QuestionsViewController: UIViewController {
 }
 extension QuestionsViewController {
     func setupView(){
+        checkIfAnswered()
+        getAnswers()
         self.isBtnSelect = true
         //collectionView.isHidden = true
         txtStackView.isHidden = true
@@ -71,7 +73,7 @@ extension QuestionsViewController {
     func getQuestion(_ index: Int){
         if self.arrIndex < questionArr.count {
             let question = self.questionArr[index]
-            if question.qaType == "Multiple" {
+            if question.qaType == "Multiple" || question.qaType == "0"   {
                 self.lblTitle.text = question.qaQ ?? ""
                 self.collectionView.isHidden = false
                 self.txtStackView.isHidden = true
@@ -86,7 +88,11 @@ extension QuestionsViewController {
                 appendToChoices(question.qaC4 ?? "")
                 self.collectionView.reloadData()
             } else {
-                self.lblTitle.text = (question.qaText ?? "").html2Attributed?.string
+                if self.isAnswered{
+                    self.lblTitle.text = (question.qaText ?? "").html2Attributed?.string
+                } else {
+                    self.lblTitle.text = (question.answerText ?? "").html2Attributed?.string
+                }
                 self.collectionView.isHidden = true
                 self.btnSpeaker.isHidden = question.audio.count == 0 ? true : false
                 self.txtStackView.isHidden = false
@@ -123,6 +129,44 @@ extension QuestionsViewController {
         self.choicesArr.append(choice)
     }
     
+    func getAnswers() {
+        let stId = UserProfile.shared.userID ?? 0
+               let request = BaseRequest()
+               request.url = "getAnswers?st_id=\(stId)&task_id=2007"
+               request.method = .get
+               self.showIndicator()
+               RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
+                   self.hideIndicator()
+                   let data = AnswersModel.init(fromJson: json)
+                   if data.success {
+                       if let questions = data.answers {
+                        self.questionArr = questions
+                        self.getQuestion(self.arrIndex)
+                       }
+                       self.collectionView.reloadData()
+                       return
+                   }
+                       self.ErrorMessage(title: "", errorbody: data.message)
+        }
+    }
+    
+    func checkIfAnswered() {
+       // let stId = UserProfile.shared.userID ?? 0
+               let request = BaseRequest()
+               request.url = "checkAnswers?st_id=2&story_id=316&task_id=2007"
+               request.method = .get
+               self.showIndicator()
+               RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
+                   self.hideIndicator()
+                   let data = GeneralResponse.init(fromJson: json)
+                   if data.success {
+                      self.isAnswered = data.found
+                       self.collectionView.reloadData()
+                       return
+                   }
+                       self.ErrorMessage(title: "", errorbody: data.message)
+        }
+    }
     
     func play(_ url: String) {
         
@@ -155,6 +199,18 @@ extension QuestionsViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionsCollectionViewCell", for: indexPath) as! QuestionsCollectionViewCell
         cell.object = self.choicesArr[indexPath.row]
+        if self.isAnswered {
+            if indexPath.row + 1 == self.questionArr[self.arrIndex].answerCh  {
+                //cell.colorView.backgroundColor = .green
+                if indexPath.row + 1  == self.questionArr[self.arrIndex].qaC  {
+                    cell.colorView.backgroundColor = .green
+                } else {
+                    cell.colorView.backgroundColor = .red
+                }
+            } else {
+                cell.colorView.backgroundColor = "primaryColor".myColor
+            }
+        }
         cell.configureCell()
         return cell
     }

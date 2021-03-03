@@ -7,6 +7,7 @@ PODS:
   - Kingfisher/Core (5.13.2)
   - LGSideMenuController (2.1.1)
   - MBProgressHUD (1.2.0)
+  - mp3lame-for-ios (0.1.1)
   - SVProgressHUD (2.2.5)
   - SwiftMessages (9.0.0):
     - SwiftMessages/App (= 9.0.0)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - Kingfisher (= 5.13.2)
   - LGSideMenuController (= 2.1.1)
   - MBProgressHUD (~> 1.2.0)
+  - mp3lame-for-ios
   - SVProgressHUD
   - SwiftMessages
   - SwiftyJSON (= 5.0.0)
@@ -34,6 +36,7 @@ SPEC REPOS:
     - Kingfisher
     - LGSideMenuController
     - MBProgressHUD
+    - mp3lame-for-ios
     - SVProgressHUD
     - SwiftMessages
     - SwiftyJSON
@@ -46,11 +49,12 @@ SPEC CHECKSUMS:
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  mp3lame-for-ios: 4daeb5686885be66438154050e3fe975d4ee1f07
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftMessages: 55274ca3a239062398603008ed81924cfd1fe798
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: 4666168c9e05fe3ba41e544bc1a1e0941c028bb1
+PODFILE CHECKSUM: 72a1237b46f50679d7593976cb5b2006ba508442
 
 COCOAPODS: 1.10.1

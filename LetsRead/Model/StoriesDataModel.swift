@@ -308,6 +308,8 @@ class Question : NSObject, NSCoding{
     var qaStory : Int!
     var qaText : String!
     var qaType : String!
+    var answerCh : Int!
+    var answerText : String!
 
     /**
      * Instantiate the instance using the passed json values to set the properties values
@@ -316,6 +318,8 @@ class Question : NSObject, NSCoding{
         if json.isEmpty{
             return
         }
+        answerCh = json["answer_ch"].intValue
+        answerText = json["answer_text"].stringValue
         audio = json["audio"].stringValue
         priority = json["priority"].intValue
         qaC = json["qa_c"].intValue
@@ -329,6 +333,8 @@ class Question : NSObject, NSCoding{
         qaText = json["qa_text"].stringValue
         qaType = json["qa_type"].stringValue
     }
+    
+   // init(from obj: Answer)
 
     /**
      * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
@@ -336,6 +342,12 @@ class Question : NSObject, NSCoding{
     func toDictionary() -> [String:Any]
     {
         var dictionary = [String:Any]()
+        if answerCh != nil{
+            dictionary["answer_ch"] = answerCh
+        }
+        if answerText != nil{
+            dictionary["answer_text"] = answerText
+        }
         if audio != nil{
             dictionary["audio"] = audio
         }
@@ -381,6 +393,9 @@ class Question : NSObject, NSCoding{
     */
     @objc required init(coder aDecoder: NSCoder)
     {
+        
+        answerCh = aDecoder.decodeObject(forKey: "answer_ch") as? Int
+        answerText = aDecoder.decodeObject(forKey: "answer_text") as? String
          audio = aDecoder.decodeObject(forKey: "audio") as? String
          priority = aDecoder.decodeObject(forKey: "priority") as? Int
          qaC = aDecoder.decodeObject(forKey: "qa_c") as? Int
@@ -402,6 +417,12 @@ class Question : NSObject, NSCoding{
     */
     func encode(with aCoder: NSCoder)
     {
+        if answerCh != nil{
+            aCoder.encode(answerCh, forKey: "answer_ch")
+        }
+        if answerText != nil{
+            aCoder.encode(answerText, forKey: "answer_text")
+        }
         if audio != nil{
             aCoder.encode(audio, forKey: "audio")
         }
@@ -448,6 +469,7 @@ class Question : NSObject, NSCoding{
 class GeneralResponse : NSObject, NSCoding{
 
     var success : Bool!
+    var found : Bool!
     var balance : Int!
     var code : Int!
     var message : String!
@@ -461,6 +483,7 @@ class GeneralResponse : NSObject, NSCoding{
             return
         }
         success = json["Success"].boolValue
+        found = json["Found"].boolValue
         balance = json["balance"].intValue
         code = json["code"].intValue
         message = json["message"].stringValue
@@ -473,6 +496,10 @@ class GeneralResponse : NSObject, NSCoding{
     {
         var dictionary = [String:Any]()
         if success != nil{
+            dictionary["Success"] = success
+        }
+        
+        if found != nil{
             dictionary["Success"] = success
         }
         if balance != nil{
@@ -494,6 +521,7 @@ class GeneralResponse : NSObject, NSCoding{
     @objc required init(coder aDecoder: NSCoder)
     {
          success = aDecoder.decodeObject(forKey: "Success") as? Bool
+         found = aDecoder.decodeObject(forKey: "Found") as? Bool
          balance = aDecoder.decodeObject(forKey: "balance") as? Int
          code = aDecoder.decodeObject(forKey: "code") as? Int
          message = aDecoder.decodeObject(forKey: "message") as? String
@@ -508,6 +536,9 @@ class GeneralResponse : NSObject, NSCoding{
     {
         if success != nil{
             aCoder.encode(success, forKey: "Success")
+        }
+        if found != nil{
+            aCoder.encode(success, forKey: "Found")
         }
         if balance != nil{
             aCoder.encode(balance, forKey: "balance")

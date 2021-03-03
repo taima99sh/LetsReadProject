@@ -16,5 +16,6 @@ target 'LetsRead' do
   pod 'SwiftyJSON', '5.0.0'
   pod 'Alamofire', '~> 5.0.0-rc.2'
   pod 'MBProgressHUD', '~> 1.2.0'
+  pod 'mp3lame-for-ios'
 
 end

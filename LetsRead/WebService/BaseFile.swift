@@ -11,7 +11,7 @@ import Foundation
 enum FileDataType: String {
     case image = "image/png"
     case video = "video/mp4"
-    case audio = "audio/m4a"
+    case audio = "audio/mp3"
 }
 
 class BaseFile {
@@ -29,7 +29,7 @@ class BaseFile {
         case .video:
             return "\(self.name ?? "video").mp4"
         case .audio:
-            return "\(self.name ?? "audio").m4a"
+            return "\(self.name ?? "audio").mp3"
         }
     }
 }
