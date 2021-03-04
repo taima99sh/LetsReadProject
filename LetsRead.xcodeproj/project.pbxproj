@@ -124,7 +124,7 @@
 		A60D8A8125E7CC6F00070783 /* GameDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataModel.swift; sourceTree = "<group>"; };
 		A60D8A8325E7CCB400070783 /* VideosDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosDataModel.swift; sourceTree = "<group>"; };
 		A60D8A8525E7CD7E00070783 /* MessageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDataModel.swift; sourceTree = "<group>"; };
-		A64F45C725E4E1D200A25654 /* LetsRead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsRead.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A64F45C725E4E1D200A25654 /* يلا نقرأ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "يلا نقرأ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64F45CA25E4E1D200A25654 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A64F45CC25E4E1D200A25654 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A64F45CE25E4E1D200A25654 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 		A64F45C825E4E1D200A25654 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A64F45C725E4E1D200A25654 /* LetsRead.app */,
+				A64F45C725E4E1D200A25654 /* يلا نقرأ.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -607,7 +607,7 @@
 			);
 			name = LetsRead;
 			productName = "Let's Read";
-			productReference = A64F45C725E4E1D200A25654 /* LetsRead.app */;
+			productReference = A64F45C725E4E1D200A25654 /* يلا نقرأ.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -952,7 +952,7 @@
 					"$(PROJECT_DIR)/LetsRead/Utlis/AudioConverterKit",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.taima.net.LetsRead;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "يلا نقرأ";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/LetsRead/SupportFiles/bridge.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -977,7 +977,7 @@
 					"$(PROJECT_DIR)/LetsRead/Utlis/AudioConverterKit",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.taima.net.LetsRead;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "يلا نقرأ";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/LetsRead/SupportFiles/bridge.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

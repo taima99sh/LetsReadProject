@@ -42,9 +42,7 @@ class TripViewController: UIViewController {
     }
 }
 extension TripViewController {
-    func setupView(){
-       self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
+    func setupView(){}
     func localized(){}
     func setupData(){}
     func fetchData(){}
