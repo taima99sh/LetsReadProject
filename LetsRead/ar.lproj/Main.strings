@@ -1,0 +1,165 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0Gs-LA-eKN"; */
+"0Gs-LA-eKN.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "حساب الأهل، يمكن التسجيل ل 4 أبناء لاستخدام البوابة. لكيفية التسجيل يرجى\nمراجعة دليل الاستخدام"; ObjectID = "0PE-Gm-UOe"; */
+"0PE-Gm-UOe.text" = "حساب الأهل، يمكن التسجيل ل 4 أبناء لاستخدام البوابة. لكيفية التسجيل يرجى\nمراجعة دليل الاستخدام";
+
+/* Class = "UILabel"; text = "ألوان ألوان ألوان ألوان"; ObjectID = "5wB-zP-gPa"; */
+"5wB-zP-gPa.text" = "ألوان ألوان ألوان ألوان";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "6N6-8Y-WVf"; */
+"6N6-8Y-WVf.prompt" = " ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "73L-LL-AuB"; */
+"73L-LL-AuB.text" = "Label";
+
+/* Class = "UILabel"; text = "15/10"; ObjectID = "7P8-pn-ctE"; */
+"7P8-pn-ctE.text" = "15/10";
+
+/* Class = "UIViewController"; title = "الرسائل"; ObjectID = "7QJ-n5-xvr"; */
+"7QJ-n5-xvr.title" = "الرسائل";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7r8-xO-upU"; */
+"7r8-xO-upU.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "G89-B8-jcl"; */
+"G89-B8-jcl.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "حذف التسجيل "; ObjectID = "HHs-8G-ep4"; */
+"HHs-8G-ep4.normalTitle" = "حذف التسجيل ";
+
+/* Class = "UILabel"; text = "مهام  جديدة"; ObjectID = "HdY-Xo-yAb"; */
+"HdY-Xo-yAb.text" = "مهام  جديدة";
+
+/* Class = "UILabel"; text = "اسم المرسل"; ObjectID = "I2r-Ga-enY"; */
+"I2r-Ga-enY.text" = "اسم المرسل";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "JCZ-3W-3BO"; */
+"JCZ-3W-3BO.text" = "00:00";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Jvt-i6-vb0"; */
+"Jvt-i6-vb0.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; prompt = "  "; ObjectID = "Mj8-CI-sLu"; */
+"Mj8-CI-sLu.prompt" = "  ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OMJ-ln-ZY2"; */
+"OMJ-ln-ZY2.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "إرسال"; ObjectID = "OXt-9u-dt4"; */
+"OXt-9u-dt4.normalTitle" = "إرسال";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ow6-hH-7Zk"; */
+"Ow6-hH-7Zk.text" = "Label";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "QtW-zp-8cb"; */
+"QtW-zp-8cb.prompt" = " ";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "S6e-u7-tX1"; */
+"S6e-u7-tX1.prompt" = " ";
+
+/* Class = "UINavigationItem"; title = "ألعاب"; ObjectID = "S6e-u7-tX1"; */
+"S6e-u7-tX1.title" = "ألعاب";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "SHG-kL-Nye"; */
+"SHG-kL-Nye.prompt" = " ";
+
+/* Class = "UINavigationItem"; title = "من نحن"; ObjectID = "SHG-kL-Nye"; */
+"SHG-kL-Nye.title" = "من نحن";
+
+/* Class = "UILabel"; text = "استمع"; ObjectID = "SvK-tT-Obl"; */
+"SvK-tT-Obl.text" = "استمع";
+
+/* Class = "UILabel"; text = "القصص"; ObjectID = "SwP-Mm-SLN"; */
+"SwP-Mm-SLN.text" = "القصص";
+
+/* Class = "UILabel"; text = "ألعاب"; ObjectID = "U2B-bZ-65G"; */
+"U2B-bZ-65G.text" = "ألعاب";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "UBi-3K-0gP"; */
+"UBi-3K-0gP.prompt" = " ";
+
+/* Class = "UINavigationItem"; title = "فيديوهات"; ObjectID = "UBi-3K-0gP"; */
+"UBi-3K-0gP.title" = "فيديوهات";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WFR-LR-WTI"; */
+"WFR-LR-WTI.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "الأسئلة"; ObjectID = "Xad-l4-GuJ"; */
+"Xad-l4-GuJ.text" = "الأسئلة";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Xps-qb-GeF"; */
+"Xps-qb-GeF.title" = " ";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "YJ8-EY-nLA"; */
+"YJ8-EY-nLA.prompt" = " ";
+
+/* Class = "UINavigationItem"; title = "الرسائل"; ObjectID = "YJ8-EY-nLA"; */
+"YJ8-EY-nLA.title" = "الرسائل";
+
+/* Class = "UILabel"; text = "مهام مقترحة"; ObjectID = "ZSI-2V-B5A"; */
+"ZSI-2V-B5A.text" = "مهام مقترحة";
+
+/* Class = "UIButton"; normalTitle = "إرسال"; ObjectID = "bcz-kU-feW"; */
+"bcz-kU-feW.normalTitle" = "إرسال";
+
+/* Class = "UIBarButtonItem"; title = "رجوع"; ObjectID = "cmc-Hb-p5F"; */
+"cmc-Hb-p5F.title" = "رجوع";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cwA-8d-x7T"; */
+"cwA-8d-x7T.text" = "Label";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "dZa-65-705"; */
+"dZa-65-705.prompt" = " ";
+
+/* Class = "UINavigationItem"; title = " الرئيسية"; ObjectID = "dZa-65-705"; */
+"dZa-65-705.title" = " الرئيسية";
+
+/* Class = "UILabel"; text = "step 7(قراءة) "; ObjectID = "dqp-bv-ZJK"; */
+"dqp-bv-ZJK.text" = "step 7(قراءة) ";
+
+/* Class = "UITextView"; text = "اكتب هنا ..."; ObjectID = "exP-fa-jX2"; */
+"exP-fa-jX2.text" = "اكتب هنا ...";
+
+/* Class = "UILabel"; text = "نص الرسالة نص الرسالة نص الرسالة نص الرسالة نص الرسالة نص الرسالة  "; ObjectID = "ffh-Mx-wzJ"; */
+"ffh-Mx-wzJ.text" = "نص الرسالة نص الرسالة نص الرسالة نص الرسالة نص الرسالة نص الرسالة  ";
+
+/* Class = "UILabel"; text = "مهام قديمة"; ObjectID = "hkV-J3-5cA"; */
+"hkV-J3-5cA.text" = "مهام قديمة";
+
+/* Class = "UIButton"; normalTitle = "إرسال"; ObjectID = "kbx-iN-SO5"; */
+"kbx-iN-SO5.normalTitle" = "إرسال";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "l3y-W2-bvH"; */
+"l3y-W2-bvH.prompt" = " ";
+
+/* Class = "UINavigationItem"; title = "جولة"; ObjectID = "l3y-W2-bvH"; */
+"l3y-W2-bvH.title" = "جولة";
+
+/* Class = "UILabel"; text = "ارسم"; ObjectID = "nw9-EX-swO"; */
+"nw9-EX-swO.text" = "ارسم";
+
+/* Class = "UINavigationItem"; prompt = " "; ObjectID = "o6y-1K-P3h"; */
+"o6y-1K-P3h.prompt" = " ";
+
+/* Class = "UILabel"; text = "اقرأ"; ObjectID = "ogF-h7-izy"; */
+"ogF-h7-izy.text" = "اقرأ";
+
+/* Class = "UIButton"; normalTitle = "رسالة جديدة         "; ObjectID = "rRA-Me-ik9"; */
+"rRA-Me-ik9.normalTitle" = "رسالة جديدة         ";
+
+/* Class = "UIButton"; normalTitle = "تسجيل الدخول"; ObjectID = "s2u-yL-IvL"; */
+"s2u-yL-IvL.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UIButton"; normalTitle = "تسجيل"; ObjectID = "une-sw-R0O"; */
+"une-sw-R0O.normalTitle" = "تسجيل";
+
+/* Class = "UIButton"; normalTitle = "تم"; ObjectID = "vsb-LQ-kcw"; */
+"vsb-LQ-kcw.normalTitle" = "تم";
+
+/* Class = "UITextField"; placeholder = "كلمة المرور"; ObjectID = "zXs-uK-dbI"; */
+"zXs-uK-dbI.placeholder" = "كلمة المرور";
+
+/* Class = "UITextField"; placeholder = "اسم المستخدم"; ObjectID = "zfz-f1-g02"; */
+"zfz-f1-g02.placeholder" = "اسم المستخدم";

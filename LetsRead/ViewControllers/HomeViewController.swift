@@ -9,6 +9,7 @@
 import UIKit
 import  LGSideMenuController
 import AVKit
+
 class HomeViewController: UIViewController {
     
     enum typePage: String {
@@ -116,7 +117,6 @@ extension HomeViewController {
         isPointsButtonTapped = false
         self.type = .pastTasks
         self.navigationItem.leftItemsSupplementBackButton = true
-        let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "AboutReadingViewController") as! AboutReadingViewController
         collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HomeCollectionViewCell")
     }
     
@@ -241,7 +241,7 @@ extension HomeViewController {
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat = 250
-        let width: CGFloat = (UIScreen.main.bounds.size.width - ( 15 + 15 + 16 + 44 + 44)) / 2
+        let width: CGFloat = (UIScreen.main.bounds.size.width - ( 15 + 15 + 16 + 30 + 30)) / 2
             return CGSize.init(width: width, height: height)
     }
 }

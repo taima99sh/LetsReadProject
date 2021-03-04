@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnHidePassword(_ sender: Any) {
+        self.txtPassword.isSecureTextEntry = !self.txtPassword.isSecureTextEntry
     }
     
     @IBAction func btnSideMenu(_ sender: Any) {

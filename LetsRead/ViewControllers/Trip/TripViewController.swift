@@ -9,9 +9,7 @@
 import UIKit
 
 class TripViewController: UIViewController {
-    @IBOutlet weak var btnStories: UIButton!
-    @IBOutlet weak var btnPaint: UIButton!
-    @IBOutlet weak var btnGames: UIButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()

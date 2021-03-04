@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                          mode: AVAudioSession.Mode.moviePlayback,
                                                           options: [.mixWithOthers])
        IQKeyboardManager.shared.enable = true
+       //UIView.appearance().semanticContentAttribute = .forceRightToLeft
         return true
     }
 

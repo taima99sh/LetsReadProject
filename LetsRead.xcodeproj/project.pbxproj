@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3392DD61D3B78FC3ED6BBDE9 /* Pods_LetsRead.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7B42EABAB72116ABB29C94 /* Pods_LetsRead.framework */; };
-		A60D8A4225E7838100070783 /* 1595679044-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A60D8A4125E7838100070783 /* 1595679044-1.mp3 */; };
 		A60D8A4625E7887600070783 /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A4425E7887600070783 /* QuestionCollectionViewCell.swift */; };
 		A60D8A4725E7887600070783 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60D8A4525E7887600070783 /* QuestionCollectionViewCell.xib */; };
 		A60D8A4A25E789E900070783 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A4925E789E900070783 /* QuestionsViewController.swift */; };
@@ -18,7 +17,6 @@
 		A60D8A5325E7BE9B00070783 /* FromWebVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A5225E7BE9B00070783 /* FromWebVewController.swift */; };
 		A60D8A5525E7C28F00070783 /* AboutReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A5425E7C28F00070783 /* AboutReadingViewController.swift */; };
 		A60D8A7E25E7CC3600070783 /* StoriesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A7D25E7CC3600070783 /* StoriesDataModel.swift */; };
-		A60D8A8025E7CC5400070783 /* QuestionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A7F25E7CC5400070783 /* QuestionDataModel.swift */; };
 		A60D8A8225E7CC6F00070783 /* GameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A8125E7CC6F00070783 /* GameDataModel.swift */; };
 		A60D8A8425E7CCB400070783 /* VideosDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A8325E7CCB400070783 /* VideosDataModel.swift */; };
 		A60D8A8625E7CD7E00070783 /* MessageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60D8A8525E7CD7E00070783 /* MessageDataModel.swift */; };
@@ -72,6 +70,7 @@
 		A6DA827E25EC840C00064FCA /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA827C25EC840C00064FCA /* VideoCollectionViewCell.swift */; };
 		A6DA827F25EC840C00064FCA /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6DA827D25EC840C00064FCA /* VideoCollectionViewCell.xib */; };
 		A6DA828125ECDE5400064FCA /* SendMessageViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA828025ECDE5300064FCA /* SendMessageViewControlller.swift */; };
+		A6EEFCA325F0F725006F73A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6EEFCA525F0F725006F73A5 /* Localizable.strings */; };
 		A6F36B4525EF3A540084FC6D /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F36B4025EF3A540084FC6D /* libmp3lame.a */; };
 		A6F36B4625EF3A540084FC6D /* ExtAudioConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B4125EF3A540084FC6D /* ExtAudioConverter.m */; };
 		A6F36B4B25EF6B1D0084FC6D /* AnswersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B4A25EF6B1D0084FC6D /* AnswersModel.swift */; };
@@ -113,7 +112,6 @@
 /* Begin PBXFileReference section */
 		04032FACA97D089897234C3B /* Pods-LetsRead.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsRead.release.xcconfig"; path = "Target Support Files/Pods-LetsRead/Pods-LetsRead.release.xcconfig"; sourceTree = "<group>"; };
 		0C7B42EABAB72116ABB29C94 /* Pods_LetsRead.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LetsRead.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A60D8A4125E7838100070783 /* 1595679044-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "1595679044-1.mp3"; sourceTree = "<group>"; };
 		A60D8A4425E7887600070783 /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		A60D8A4525E7887600070783 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		A60D8A4925E789E900070783 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 		A60D8A5225E7BE9B00070783 /* FromWebVewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromWebVewController.swift; sourceTree = "<group>"; };
 		A60D8A5425E7C28F00070783 /* AboutReadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutReadingViewController.swift; sourceTree = "<group>"; };
 		A60D8A7D25E7CC3600070783 /* StoriesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDataModel.swift; sourceTree = "<group>"; };
-		A60D8A7F25E7CC5400070783 /* QuestionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDataModel.swift; sourceTree = "<group>"; };
 		A60D8A8125E7CC6F00070783 /* GameDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataModel.swift; sourceTree = "<group>"; };
 		A60D8A8325E7CCB400070783 /* VideosDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosDataModel.swift; sourceTree = "<group>"; };
 		A60D8A8525E7CD7E00070783 /* MessageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDataModel.swift; sourceTree = "<group>"; };
@@ -179,6 +176,7 @@
 		A6DA827C25EC840C00064FCA /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6DA827D25EC840C00064FCA /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
 		A6DA828025ECDE5300064FCA /* SendMessageViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageViewControlller.swift; sourceTree = "<group>"; };
+		A6EEFCA425F0F725006F73A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A6F36B3F25EF3A540084FC6D /* ExtAudioConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtAudioConverter.h; sourceTree = "<group>"; };
 		A6F36B4025EF3A540084FC6D /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		A6F36B4125EF3A540084FC6D /* ExtAudioConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtAudioConverter.m; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 			children = (
 				A60D8A7D25E7CC3600070783 /* StoriesDataModel.swift */,
 				A65B448C25EE569400410B17 /* TripModel.swift */,
-				A60D8A7F25E7CC5400070783 /* QuestionDataModel.swift */,
 				A60D8A8125E7CC6F00070783 /* GameDataModel.swift */,
 				A60D8A8325E7CCB400070783 /* VideosDataModel.swift */,
 				A60D8A8525E7CD7E00070783 /* MessageDataModel.swift */,
@@ -296,7 +293,6 @@
 			children = (
 				A60D8A7C25E7CC0900070783 /* Model */,
 				A64F469825E7461900A25654 /* WebService */,
-				A60D8A4125E7838100070783 /* 1595679044-1.mp3 */,
 				A64F460325E4F63100A25654 /* ViewControllers */,
 				A64F45E025E4E39D00A25654 /* Utlis */,
 				A64F45DE25E4E36800A25654 /* SupportFiles */,
@@ -317,6 +313,7 @@
 				A6F36B4825EF3ABE0084FC6D /* bridge.h */,
 				A6F36B5B25F0D9430084FC6D /* Fonts */,
 				A6F36B4925EF3BE40084FC6D /* demoConvert.swift */,
+				A6EEFCA525F0F725006F73A5 /* Localizable.strings */,
 			);
 			path = SupportFiles;
 			sourceTree = "<group>";
@@ -654,9 +651,9 @@
 			files = (
 				A6F36B8225F0D9D10084FC6D /* font_regular.ttf in Resources */,
 				A64F460A25E4F68E00A25654 /* HomeCollectionViewCell.xib in Resources */,
+				A6EEFCA325F0F725006F73A5 /* Localizable.strings in Resources */,
 				A60D8A4725E7887600070783 /* QuestionCollectionViewCell.xib in Resources */,
 				A64F45D725E4E1D500A25654 /* LaunchScreen.storyboard in Resources */,
-				A60D8A4225E7838100070783 /* 1595679044-1.mp3 in Resources */,
 				A64F45D425E4E1D500A25654 /* Assets.xcassets in Resources */,
 				A6DA827F25EC840C00064FCA /* VideoCollectionViewCell.xib in Resources */,
 				A64F469425E6C92A00A25654 /* MenuTableViewCell.xib in Resources */,
@@ -787,7 +784,6 @@
 				A6F36B9725F0D9E80084FC6D /* HexColorExtension.swift in Sources */,
 				A6F36B4625EF3A540084FC6D /* ExtAudioConverter.m in Sources */,
 				A64F467825E672F300A25654 /* GeneralCollectionViewData.swift in Sources */,
-				A60D8A8025E7CC5400070783 /* QuestionDataModel.swift in Sources */,
 				A60D8A8625E7CD7E00070783 /* MessageDataModel.swift in Sources */,
 				A6DA828125ECDE5400064FCA /* SendMessageViewControlller.swift in Sources */,
 			);
@@ -812,6 +808,14 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		A6EEFCA525F0F725006F73A5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6EEFCA425F0F725006F73A5 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -819,6 +823,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -879,6 +884,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
