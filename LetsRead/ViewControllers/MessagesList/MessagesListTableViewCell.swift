@@ -10,10 +10,11 @@ import UIKit
 
 class MessagesListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblSender:UILabel!
-    
     var object: Message?
+    
+    @IBOutlet weak var lblSender: UILabel!
+    @IBOutlet weak var lblMessage: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,14 +23,14 @@ class MessagesListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
     func configureCell() {
         if let obj = object {
-            self.lblTitle.text = obj.title ?? ""
-            self.lblSender.text = obj.body ?? ""
+            self.lblDate.text = (obj.createdAt ?? "").toDate(customFormat: "yyyy-MM-dd'T'HH:mm:ssZ").toString(customFormat: "MMM d, h:mm a")
+            self.lblSender.text = obj.senderName ?? ""
+            self.lblMessage.text = obj.body ?? ""
         }
     }
 

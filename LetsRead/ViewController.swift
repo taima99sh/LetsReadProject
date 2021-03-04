@@ -12,13 +12,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var btnHidePassword: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func btnHidePassword(_ sender: Any) {
-        
     }
     
     @IBAction func btnSideMenu(_ sender: Any) {
@@ -58,7 +58,6 @@ class ViewController: UIViewController {
             }
             self.ErrorMessage(title: "", errorbody: data.message)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,11 +86,6 @@ extension ViewController {
             return false
         }
         return true
-    }
-    
-    
-    func login() {
-        
     }
 }
 

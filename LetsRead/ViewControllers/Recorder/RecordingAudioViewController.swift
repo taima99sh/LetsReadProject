@@ -19,11 +19,10 @@ class RecordingAudioViewController: UIViewController {
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var playbackSlider: UISlider!
     @IBOutlet weak var lblOverallDuration: UILabel!
-    //@IBOutlet weak var lblcurrentText: UILabel!
     
     
-    var player:AVPlayer?
-    var playerItem:AVPlayerItem?
+    var player: AVPlayer?
+    var playerItem: AVPlayerItem?
     var recordingSession: AVAudioSession!
     var whistleRecorder: AVAudioRecorder!
     var whistlePlayer: AVAudioPlayer!
@@ -31,7 +30,6 @@ class RecordingAudioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setupData()
         playerView.isHidden = true
         recordingSession = AVAudioSession.sharedInstance()
         do {
@@ -55,10 +53,8 @@ class RecordingAudioViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    
     @IBAction func btnPlay(_ sender: Any) {
         self.playTapped()
-        //convert()
         print("play Button")
     }
     
@@ -76,14 +72,9 @@ class RecordingAudioViewController: UIViewController {
     }
 }
 extension RecordingAudioViewController {
-    func setupView(){
-        
-        
-        
-    }
+    func setupView(){}
     func localized(){}
     func setupData(_ url: URL) {
-        
         let playerItem:AVPlayerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
         playbackSlider.addTarget(self, action: #selector(self.playbackSliderValueChanged(_:)), for: .valueChanged)
@@ -92,9 +83,6 @@ extension RecordingAudioViewController {
         lblOverallDuration.text = self.stringFromTimeInterval(interval: seconds)
         playbackSlider.maximumValue = Float(seconds)
         playbackSlider.isContinuous = true
-        
-        
-        
         player!.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main) { (CMTime) -> Void in
             if self.player!.currentItem?.status == .readyToPlay {
                 let time : Float64 = CMTimeGetSeconds(self.player!.currentTime());
@@ -104,20 +92,13 @@ extension RecordingAudioViewController {
             let playbackLikelyToKeepUp = self.player?.currentItem?.isPlaybackLikelyToKeepUp
             if playbackLikelyToKeepUp == false{
                 print("IsBuffering")
-
             } else {
                 print("Buffering completed")
-
             }
-            
         }
     }
     func fetchData(){}
     
-    @objc func addWhistle() {
-        let vc = RecordingAudioViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
     
     class func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -125,14 +106,14 @@ extension RecordingAudioViewController {
         return documentsDirectory
     }
 
-    class func getWhistleURL() -> URL {
+    class func getRecordingURL() -> URL {
         return getDocumentsDirectory().appendingPathComponent("record.m4a")
     }
     
     func startRecording() {
 
         btnRecording.setTitle("إيقاف", for: .normal)
-        let audioURL = RecordingAudioViewController.getWhistleURL()
+        let audioURL = RecordingAudioViewController.getRecordingURL()
         print(audioURL.absoluteString)
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -156,7 +137,6 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
         if playerView.isHidden {
             UIView.animate(withDuration: 0.35) { [unowned self] in
                 self.playerView.isHidden = false
-                //self.playButton.alpha = 1
             }
         }
         
@@ -171,21 +151,17 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
     }
     
     @objc func playTapped() {
-        let audioURL = RecordingAudioViewController.getWhistleURL()
+        let audioURL = RecordingAudioViewController.getRecordingURL()
         do {
             setupData(audioURL)
             if player?.rate == 0
             {
                 player!.play()
-                //self.ButtonPlay.isHidden = true
-                //self.loadingView.isHidden = false
                 btnPlay.setImage(UIImage(systemName: "playpause.fill"), for: UIControl.State.normal)
             } else {
                 player!.pause()
                 btnPlay.setImage(UIImage(named: "play.fill"), for: UIControl.State.normal)
             }
-//            audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
-//            audioPlayer?.play()
         } catch {
             self.ErrorMessage(title: "", errorbody: "Playback failed")
         }
@@ -278,7 +254,7 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
     
     
     func convert() -> URL?{
-        let audioURL = RecordingAudioViewController.getWhistleURL()
+        let audioURL = RecordingAudioViewController.getRecordingURL()
         let inputPath = audioURL.path
         if let outputURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("output.mp3") {
             let outputPath = outputURL.path

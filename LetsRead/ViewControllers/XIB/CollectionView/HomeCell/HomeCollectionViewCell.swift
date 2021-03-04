@@ -8,10 +8,10 @@
 
 import UIKit
 import AVKit
+
 class HomeCollectionViewCell: UICollectionViewCell {
     
     var object: Previou?
-    
     var questions: [String] = []
     var listen: String = ""
     var read: String = ""
@@ -24,6 +24,11 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        if !UserProfile.shared.isUserLogin() {
+            listenView.isHidden = true
+            readView.isHidden = true
+            questionView.isHidden = true
+        }
         // Initialization code
     }
     
@@ -36,15 +41,12 @@ class HomeCollectionViewCell: UICollectionViewCell {
                     let player = AVPlayer(url: url)
                       let playerViewController = AVPlayerViewController()
                       playerViewController.player = player
-                    
-                    parent.present(playerViewController, animated: true) {
+                      parent.present(playerViewController, animated: true) {
                         player.play()
                       }
                 }
-
             }
         }
-        
     }
     
     @IBAction func btnRead(_ sender: Any) {
@@ -64,13 +66,11 @@ class HomeCollectionViewCell: UICollectionViewCell {
                 vc.storyId = "\(obj.tsStory ?? 0)"
                 vc.taskId = "\(obj.tsId ?? 0)"
                 vc.questionArr = obj.questions ?? []
-                                parent.navigationController?.pushViewController(vc, animated: true)
+                parent.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
-    
-    
-    
+        
     func configureCell() {
         self.validation()
         if let obj = self.object{

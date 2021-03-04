@@ -44,7 +44,6 @@
 		A64F462325E51E0500A25654 /* Int32+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F461825E51E0400A25654 /* Int32+Extension.swift */; };
 		A64F462425E51E0500A25654 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F461925E51E0400A25654 /* PDFViewController.swift */; };
 		A64F462525E51E0500A25654 /* PDFDocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F461A25E51E0400A25654 /* PDFDocumentController.swift */; };
-		A64F462725E51F5F00A25654 /* Sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A64F462625E51F5F00A25654 /* Sample.pdf */; };
 		A64F467325E65B7E00A25654 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F467225E65B7E00A25654 /* MainNavigationViewController.swift */; };
 		A64F467425E672EC00A25654 /* GeneralTableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F45F425E4E4F900A25654 /* GeneralTableViewData.swift */; };
 		A64F467525E672EC00A25654 /* GeneralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F45F525E4E4F900A25654 /* GeneralTableViewCell.swift */; };
@@ -75,7 +74,6 @@
 		A64F469425E6C92A00A25654 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64F469225E6C92A00A25654 /* MenuTableViewCell.xib */; };
 		A64F469725E7415500A25654 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F469625E7415400A25654 /* TaskViewController.swift */; };
 		A64F469A25E7463D00A25654 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F469925E7463D00A25654 /* Downloader.swift */; };
-		A64F469C25E754C500A25654 /* 103020-whose-voice-is-this.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A64F469B25E754C300A25654 /* 103020-whose-voice-is-this.pdf */; };
 		A65B448B25EE37D600410B17 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B448A25EE37D600410B17 /* GamesViewController.swift */; };
 		A65B448D25EE569400410B17 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B448C25EE569400410B17 /* TripModel.swift */; };
 		A6AD5A1A25EB0342008B80CA /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD5A1425EB0341008B80CA /* BaseRequest.swift */; };
@@ -87,7 +85,6 @@
 		A6AD5A2125EB0631008B80CA /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD5A2025EB0631008B80CA /* UserModel.swift */; };
 		A6DA826B25EB31B000064FCA /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA826A25EB31B000064FCA /* VideoPlayerView.swift */; };
 		A6DA827225EBB0C900064FCA /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA827025EBB0C900064FCA /* MessageTableViewCell.swift */; };
-		A6DA827325EBB0C900064FCA /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6DA827125EBB0C900064FCA /* MessageTableViewCell.xib */; };
 		A6DA827B25EBD79900064FCA /* VideosListViwController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA827A25EBD79900064FCA /* VideosListViwController.swift */; };
 		A6DA827E25EC840C00064FCA /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DA827C25EC840C00064FCA /* VideoCollectionViewCell.swift */; };
 		A6DA827F25EC840C00064FCA /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6DA827D25EC840C00064FCA /* VideoCollectionViewCell.xib */; };
@@ -97,6 +94,7 @@
 		A6F36B4B25EF6B1D0084FC6D /* AnswersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B4A25EF6B1D0084FC6D /* AnswersModel.swift */; };
 		A6F36B5425EFA54B0084FC6D /* MessagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B5325EFA54B0084FC6D /* MessagesListViewController.swift */; };
 		A6F36B5625EFA5620084FC6D /* MessagesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B5525EFA5620084FC6D /* MessagesListTableViewCell.swift */; };
+		A6F36B5A25F0BF510084FC6D /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B5925F0BF510084FC6D /* TripViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -176,7 +174,6 @@
 		A64F461825E51E0400A25654 /* Int32+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int32+Extension.swift"; sourceTree = "<group>"; };
 		A64F461925E51E0400A25654 /* PDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		A64F461A25E51E0400A25654 /* PDFDocumentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDFDocumentController.swift; sourceTree = "<group>"; };
-		A64F462625E51F5F00A25654 /* Sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sample.pdf; sourceTree = "<group>"; };
 		A64F467225E65B7E00A25654 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		A64F468B25E6BBF300A25654 /* LGSideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGSideViewController.swift; sourceTree = "<group>"; };
 		A64F468E25E6BD7600A25654 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +181,6 @@
 		A64F469225E6C92A00A25654 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		A64F469625E7415400A25654 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		A64F469925E7463D00A25654 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
-		A64F469B25E754C300A25654 /* 103020-whose-voice-is-this.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "103020-whose-voice-is-this.pdf"; sourceTree = "<group>"; };
 		A65B448A25EE37D600410B17 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		A65B448C25EE569400410B17 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		A6AD5A1425EB0341008B80CA /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
@@ -196,7 +192,6 @@
 		A6AD5A2025EB0631008B80CA /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		A6DA826A25EB31B000064FCA /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		A6DA827025EBB0C900064FCA /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		A6DA827125EBB0C900064FCA /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		A6DA827A25EBD79900064FCA /* VideosListViwController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosListViwController.swift; sourceTree = "<group>"; };
 		A6DA827C25EC840C00064FCA /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A6DA827D25EC840C00064FCA /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -211,6 +206,7 @@
 		A6F36B4A25EF6B1D0084FC6D /* AnswersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersModel.swift; sourceTree = "<group>"; };
 		A6F36B5325EFA54B0084FC6D /* MessagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListViewController.swift; sourceTree = "<group>"; };
 		A6F36B5525EFA5620084FC6D /* MessagesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListTableViewCell.swift; sourceTree = "<group>"; };
+		A6F36B5925F0BF510084FC6D /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		BF3164E0E73A85ED808CA636 /* Pods-LetsRead.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LetsRead.debug.xcconfig"; path = "Target Support Files/Pods-LetsRead/Pods-LetsRead.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,9 +296,7 @@
 			children = (
 				A60D8A7C25E7CC0900070783 /* Model */,
 				A64F469825E7461900A25654 /* WebService */,
-				A64F462625E51F5F00A25654 /* Sample.pdf */,
 				A60D8A4125E7838100070783 /* 1595679044-1.mp3 */,
-				A64F469B25E754C300A25654 /* 103020-whose-voice-is-this.pdf */,
 				A64F460325E4F63100A25654 /* ViewControllers */,
 				A64F45E025E4E39D00A25654 /* Utlis */,
 				A64F45DE25E4E36800A25654 /* SupportFiles */,
@@ -414,6 +408,8 @@
 		A64F460325E4F63100A25654 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A6F36B5825F0BF3B0084FC6D /* Trip */,
+				A6F36B5725EFCA8C0084FC6D /* Home */,
 				A6F36B4C25EFA47B0084FC6D /* MessagesList */,
 				A65B448925EE37C300410B17 /* Games */,
 				A6DA827925EBD78200064FCA /* Videos */,
@@ -429,7 +425,6 @@
 				A60D8A5225E7BE9B00070783 /* FromWebVewController.swift */,
 				A60D8A5425E7C28F00070783 /* AboutReadingViewController.swift */,
 				A6DA827025EBB0C900064FCA /* MessageTableViewCell.swift */,
-				A6DA827125EBB0C900064FCA /* MessageTableViewCell.xib */,
 				A6DA828025ECDE5300064FCA /* SendMessageViewControlller.swift */,
 			);
 			path = ViewControllers;
@@ -574,6 +569,21 @@
 			path = MessagesList;
 			sourceTree = "<group>";
 		};
+		A6F36B5725EFCA8C0084FC6D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A6F36B5825F0BF3B0084FC6D /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				A6F36B5925F0BF510084FC6D /* TripViewController.swift */,
+			);
+			path = Trip;
+			sourceTree = "<group>";
+		};
 		EE9D3025F21ACFEF0B9F130B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,13 +655,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A64F460225E4E54800A25654 /* font_regular.ttf in Resources */,
-				A6DA827325EBB0C900064FCA /* MessageTableViewCell.xib in Resources */,
 				A64F460A25E4F68E00A25654 /* HomeCollectionViewCell.xib in Resources */,
 				A60D8A4725E7887600070783 /* QuestionCollectionViewCell.xib in Resources */,
 				A64F460125E4E54800A25654 /* font_bold.ttf in Resources */,
-				A64F462725E51F5F00A25654 /* Sample.pdf in Resources */,
 				A64F45D725E4E1D500A25654 /* LaunchScreen.storyboard in Resources */,
-				A64F469C25E754C500A25654 /* 103020-whose-voice-is-this.pdf in Resources */,
 				A60D8A4225E7838100070783 /* 1595679044-1.mp3 in Resources */,
 				A64F45D425E4E1D500A25654 /* Assets.xcassets in Resources */,
 				A6DA827F25EC840C00064FCA /* VideoCollectionViewCell.xib in Resources */,
@@ -734,6 +741,7 @@
 				A6AD5A1F25EB0342008B80CA /* ResponseHandler.swift in Sources */,
 				A64F45CD25E4E1D200A25654 /* SceneDelegate.swift in Sources */,
 				A6F36B4B25EF6B1D0084FC6D /* AnswersModel.swift in Sources */,
+				A6F36B5A25F0BF510084FC6D /* TripViewController.swift in Sources */,
 				A60D8A5525E7C28F00070783 /* AboutReadingViewController.swift in Sources */,
 				A64F468A25E6730F00A25654 /* UserProfile.swift in Sources */,
 				A6DA826B25EB31B000064FCA /* VideoPlayerView.swift in Sources */,

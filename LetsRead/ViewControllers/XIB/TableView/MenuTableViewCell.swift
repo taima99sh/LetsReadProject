@@ -45,7 +45,7 @@ class MenuTableViewCell: GeneralTableViewCell {
                             parent.toggleRightViewAnimated(self)
                             AppDelegate.shared.rootNavigationViewController.setViewControllers([vc], animated: true)
                         case .trip:
-                            let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                            let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "TripViewController") as! TripViewController
                             parent.toggleRightViewAnimated(self)
                             AppDelegate.shared.rootNavigationViewController.setViewControllers([vc], animated: true)
                         case .library:
@@ -53,7 +53,7 @@ class MenuTableViewCell: GeneralTableViewCell {
                             parent.toggleRightViewAnimated(self)
                             AppDelegate.shared.rootNavigationViewController.setViewControllers([vc], animated: true)
                         case .messages:
-                            let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                            let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "MessagesListViewController") as! MessagesListViewController
                             parent.toggleRightViewAnimated(self)
                             AppDelegate.shared.rootNavigationViewController.setViewControllers([vc], animated: true)
                         case .games:
@@ -63,6 +63,7 @@ class MenuTableViewCell: GeneralTableViewCell {
                         case .help:
                         let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "FromWebVewController") as! FromWebVewController
                         vc.urlString = "http://clients.intertech.ps/yallaneqra/ar/mobPage/68522"
+                        vc.loaddingWebView(vc.urlString)
                         AppDelegate.shared.rootNavigationViewController.setViewControllers([vc], animated: true)
                             
                         case .videos:

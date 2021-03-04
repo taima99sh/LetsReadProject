@@ -29,7 +29,6 @@ class AboutReadingViewController: UIViewController {
 }
 extension AboutReadingViewController {
     func setupView(){
-        
     }
     func localized(){}
     func setupData(){}

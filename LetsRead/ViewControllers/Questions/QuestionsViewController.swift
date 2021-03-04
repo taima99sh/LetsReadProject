@@ -58,11 +58,20 @@ class QuestionsViewController: UIViewController {
         isBtnSelect = !isBtnSelect
     }
     
+    @IBAction func btnSaveTextAnswer(_ sender: Any) {
+        guard !(arrIndex == self.questionArr.count) else {return}
+        self.addToAnswersDic(self.questionArr[self.arrIndex].qaId ?? 0, self.txtAnswer.text ?? "")
+        self.arrIndex += 1
+        self.audioPlayer?.stop()
+        self.txtAnswer.text = ""
+        self.getQuestion(self.arrIndex)
+    }
+    
 }
 extension QuestionsViewController {
     func setupView(){
         checkIfAnswered()
-        getAnswers()
+        
         self.isBtnSelect = true
         //collectionView.isHidden = true
         txtStackView.isHidden = true
@@ -88,11 +97,8 @@ extension QuestionsViewController {
                 appendToChoices(question.qaC4 ?? "")
                 self.collectionView.reloadData()
             } else {
-                if self.isAnswered{
-                    self.lblTitle.text = (question.qaText ?? "").html2Attributed?.string
-                } else {
-                    self.lblTitle.text = (question.answerText ?? "").html2Attributed?.string
-                }
+                self.lblTitle.text = (question.qaText ?? "").html2Attributed?.string
+                self.txtAnswer.text = (question.answerText ?? "").html2Attributed?.string
                 self.collectionView.isHidden = true
                 self.btnSpeaker.isHidden = question.audio.count == 0 ? true : false
                 self.txtStackView.isHidden = false
@@ -100,10 +106,11 @@ extension QuestionsViewController {
             }
             return
         }
+        guard !self.isAnswered else {return}
         sendAnswers()
-        //self.collectionView.shouse
     }
     func sendAnswers(){
+        guard !self.isAnswered else {return}
         let stId = UserProfile.shared.userID ?? 0
         var postParameters = "answerQuestions?st_id=\(stId)&story_id=\(storyId)&task_id=\(taskId)"
         for (key, value) in self.answersDic {
@@ -132,9 +139,8 @@ extension QuestionsViewController {
     func getAnswers() {
         let stId = UserProfile.shared.userID ?? 0
                let request = BaseRequest()
-               request.url = "getAnswers?st_id=\(stId)&task_id=2007"
+               request.url = "getAnswers?st_id=\(stId)&task_id=\(taskId)"
                request.method = .get
-               self.showIndicator()
                RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
                    self.hideIndicator()
                    let data = AnswersModel.init(fromJson: json)
@@ -151,20 +157,24 @@ extension QuestionsViewController {
     }
     
     func checkIfAnswered() {
-       // let stId = UserProfile.shared.userID ?? 0
+               let stId = UserProfile.shared.userID ?? 0
                let request = BaseRequest()
-               request.url = "checkAnswers?st_id=2&story_id=316&task_id=2007"
+               request.url = "checkAnswers?st_id=\(stId)&story_id=\(storyId)&task_id=\(taskId)"
                request.method = .get
                self.showIndicator()
                RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
-                   self.hideIndicator()
                    let data = GeneralResponse.init(fromJson: json)
-                   if data.success {
+                if data.success && data.found {
+                    self.SuccessMessage(title: "", successbody: "قمت بحل هذه الأسئلة سابقاً")
                       self.isAnswered = data.found
+                    self.txtAnswer.isEditable = false
+                    self.getAnswers()
                        self.collectionView.reloadData()
                        return
                    }
-                       self.ErrorMessage(title: "", errorbody: data.message)
+                self.hideIndicator()
+                self.getQuestion(self.arrIndex)
+                       //self.ErrorMessage(title: "", errorbody: data.message)
         }
     }
     
@@ -231,7 +241,6 @@ extension QuestionsViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
         let totalCellWidth = 80 * collectionView.numberOfItems(inSection: 0)
         let totalSpacingWidth = 10 * (collectionView.numberOfItems(inSection: 0) - 1)
 

@@ -7,6 +7,10 @@
 //
 
 
+//
+//    StoriesModel.swift
+//    Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
+
 import Foundation
 import SwiftyJSON
 
@@ -18,6 +22,7 @@ class StoriesModel : NSObject, NSCoding{
     var current : [Previou]!
     var message : String!
     var previous : [Previou]!
+    var suggested : [Previou]!
 
 
     /**
@@ -41,6 +46,12 @@ class StoriesModel : NSObject, NSCoding{
         for previousJson in previousArray{
             let value = Previou(fromJson: previousJson)
             previous.append(value)
+        }
+        suggested = [Previou]()
+        let suggestedArray = json["suggested"].arrayValue
+        for suggestedJson in suggestedArray{
+            let value = Previou(fromJson: suggestedJson)
+            suggested.append(value)
         }
     }
 
@@ -73,6 +84,13 @@ class StoriesModel : NSObject, NSCoding{
             }
             dictionary["previous"] = dictionaryElements
         }
+        if suggested != nil{
+            var dictionaryElements = [[String:Any]]()
+            for suggestedElement in suggested {
+                dictionaryElements.append(suggestedElement.toDictionary())
+            }
+            dictionary["suggested"] = dictionaryElements
+        }
         return dictionary
     }
 
@@ -87,6 +105,7 @@ class StoriesModel : NSObject, NSCoding{
          current = aDecoder.decodeObject(forKey: "current") as? [Previou]
          message = aDecoder.decodeObject(forKey: "message") as? String
          previous = aDecoder.decodeObject(forKey: "previous") as? [Previou]
+         suggested = aDecoder.decodeObject(forKey: "suggested") as? [Previou]
 
     }
 
@@ -110,6 +129,9 @@ class StoriesModel : NSObject, NSCoding{
         }
         if previous != nil{
             aCoder.encode(previous, forKey: "previous")
+        }
+        if suggested != nil{
+            aCoder.encode(suggested, forKey: "suggested")
         }
 
     }

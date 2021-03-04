@@ -11,7 +11,6 @@ import UIKit
 class VideoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var lblTitle: UILabel!
-    
     @IBOutlet weak var imgVideo: UIImageView!
     @IBOutlet weak var playerView: UIView!
     

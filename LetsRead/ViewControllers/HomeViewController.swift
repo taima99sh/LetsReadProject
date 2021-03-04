@@ -8,7 +8,7 @@
 
 import UIKit
 import  LGSideMenuController
-
+import AVKit
 class HomeViewController: UIViewController {
     
     enum typePage: String {
@@ -31,11 +31,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pointsView: UIView!
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var lblPoints: UILabel!
+    @IBOutlet weak var tabsStakView: UIStackView!
+    @IBOutlet weak var btnStar: UIButton!
+    @IBOutlet weak var btnPoints: UIButton!
     
     var collectionArr: [Previou] = []
     var currrent: [Previou] = []
     var previous: [Previou] = []
     var messages: [Message] = []
+    var suggested: [Previou] = []
     var isMessagesButtonTapped: Bool = false {
         didSet {
             self.messagesView.isHidden = !isMessagesButtonTapped
@@ -65,8 +69,11 @@ class HomeViewController: UIViewController {
             getMessages()
         } else {
             self.getTripStories()
+            self.tabsStakView.isHidden = true
+            self.btnStar.isHidden = true
+            self.btnPoints.isHidden = true
+            self.title = "القصص"
         }
-        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -81,12 +88,14 @@ class HomeViewController: UIViewController {
     
     @IBAction func btnNewTasks(_ sender: Any) {
         self.type = .newTasks
-         self.collectionArr = currrent
+        self.collectionArr = currrent
         self.collectionView.reloadData()
     }
     
     @IBAction func btnSuggestedTasks(_ sender: Any) {
         self.type = .suggestedTasks
+        self.collectionArr = suggested
+        self.collectionView.reloadData()
     }
     
     @IBAction func btnStar(_ sender: Any) {
@@ -168,6 +177,7 @@ extension HomeViewController {
                 if let previousStories = data.previous,
                     let currentStories = data.current {
                     self.collectionArr = previousStories
+                    self.suggested = data.suggested ?? []
                     self.previous = previousStories
                     self.currrent = currentStories
                 }
@@ -249,9 +259,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "TaskViewController") as! TaskViewController
-        vc.task = self.collectionArr[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        let task = self.collectionArr[indexPath.row]
+        if UserProfile.shared.isUserLogin() {
+            let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "TaskViewController") as! TaskViewController
+            vc.task = task
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        let videoURLString = task.storyListen ?? ""
+        let urlString = videoURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        if let url = URL(string: urlString) {
+            let player = AVPlayer(url: url)
+              let playerViewController = AVPlayerViewController()
+              playerViewController.player = player
+            
+            self.present(playerViewController, animated: true) {
+                player.play()
+              }
+        }
     }
     
     func getStories() {

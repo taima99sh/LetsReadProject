@@ -20,7 +20,6 @@ class VideosListViwController: UIViewController {
         localized()
         setupData()
         getMessages()
-        //fetchData()
         // Do any additional setup after loading the view.
     }
     
@@ -37,11 +36,10 @@ extension VideosListViwController {
     }
     func localized(){}
     func setupData(){}
-    //func fetchData(){}
     func getMessages() {
         let request = BaseRequest()
         let stId = UserProfile.shared.userID ?? 0
-        request.url = "games?st_id=\(stId)"
+        request.url = UserProfile.shared.isUserLogin() ? "games?st_id=\(stId)" : "tripGames"
         request.method = .get
         self.showIndicator()
         RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
@@ -73,6 +71,11 @@ extension VideosListViwController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "FromWebVewController") as! FromWebVewController
+        vc.title = games[indexPath.row].gameTitle
+        vc.gameId = games[indexPath.row].gameId ?? 0
+        vc.getGames()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
