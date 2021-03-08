@@ -165,7 +165,7 @@ extension QuestionsViewController {
                RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
                    self.hideIndicator()
                    let data = AnswersModel.init(fromJson: json)
-                   if data.success {
+                if data.success && data.answers.count != 0 {
                        if let questions = data.answers {
                         self.questionArr = questions
                         self.getQuestion(self.arrIndex)
@@ -185,7 +185,7 @@ extension QuestionsViewController {
                self.showIndicator()
                RequestBuilder.requestWithSuccessfullRespnose(request: request) { (json) in
                    let data = GeneralResponse.init(fromJson: json)
-                if data.success && data.found {
+                if data.success && data.found  {
                     self.SuccessMessage(title: "", successbody: "قمت بحل هذه الأسئلة سابقاً")
                       self.isAnswered = data.found
                     self.txtAnswer.isEditable = false
