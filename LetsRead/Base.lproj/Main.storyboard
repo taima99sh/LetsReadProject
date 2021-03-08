@@ -958,8 +958,8 @@
                         <outlet property="btnToRecording" destination="2o8-bG-acm" id="hID-fA-bnN"/>
                         <outlet property="containerView" destination="yLM-NW-LzN" id="934-A0-jv5"/>
                         <outlet property="lblTitle" destination="dqp-bv-ZJK" id="0hC-vK-wgM"/>
-                        <outlet property="listenView" destination="ggU-d1-WdT" id="kBC-8v-hjh"/>
-                        <outlet property="questionView" destination="Quo-Q1-d9Z" id="bhS-lF-hvQ"/>
+                        <outlet property="listenView" destination="Quo-Q1-d9Z" id="DBh-VK-WxZ"/>
+                        <outlet property="questionView" destination="ggU-d1-WdT" id="aC0-sv-HBd"/>
                         <outlet property="readView" destination="3ci-AQ-v0i" id="kz3-G6-x35"/>
                     </connections>
                 </viewController>

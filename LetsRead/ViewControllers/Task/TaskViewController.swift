@@ -74,7 +74,10 @@ class TaskViewController: UIViewController {
     }
     
     @IBAction func btnRead(_ sender: Any) {
-        player.pause()
+        let listen = task?.storyListen ?? ""
+        if listen.count != 0 {
+            player.pause()
+        }
         vc2.audioPlayer?.stop()
         btnListen.isEnabled = true
         btnRead.isEnabled = false
@@ -92,7 +95,13 @@ class TaskViewController: UIViewController {
     }
     
     @IBAction func btnQuestions(_ sender: Any) {
-        player.pause()
+//        if !self.listenView.isHidden {
+//            player.pause()
+//        }
+        let listen = task?.storyListen ?? ""
+        if listen.count != 0 {
+            player.pause()
+        }
         vc2.audioPlayer?.stop()
         btnListen.isEnabled = true
         btnRead.isEnabled = true
@@ -108,6 +117,7 @@ class TaskViewController: UIViewController {
 }
 
 extension TaskViewController {
+    
     func getPDF(){
         if let obj = self.task {
             let test = obj.storyPdf ?? ""
@@ -118,14 +128,17 @@ extension TaskViewController {
                     print("PDF File downloaded to : \(String(describing: path))")
                     DispatchQueue.main.async {
                         self.hideIndicator()
-                        let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                        let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
                         let destinationUrl = documentsDirectoryURL.appendingPathComponent(url.lastPathComponent)
                         if let pdfViewController = PDFViewController(fileURL: destinationUrl, hasCoverPage: false, lang: self.task?.storyLang ?? 0) {
-                            self.pdfViewController = pdfViewController
+                           self.pdfViewController = pdfViewController
                            self.vc1.setViewControllers([pdfViewController], animated: true)
                            self.addChild(self.vc1)
                            self.vc1.view.frame = self.containerView.bounds
-                           self.vc1.setNavigationBarHidden(true, animated: false)
+                            self.vc1.navigationBar.backgroundColor = .clear
+                            self.vc1.navigationBar.tintColor = .clear
+                            self.vc1.navigationBar.haveShadow = true
+                            //self.vc1.navigationBar.setBackgroundImage(UIImage(), for: .default)
                            self.containerView.addSubview(self.vc1.view)
                            self.vc1.didMove(toParent: self)
                         }
@@ -144,7 +157,6 @@ extension TaskViewController {
         vc2.taskId = "\(task?.tsId ?? 0)"
         self.addChild(vc2)
         self.addChild(vc3)
-        
         switch self.type {
         case .listen:
             self.btnListen(self)

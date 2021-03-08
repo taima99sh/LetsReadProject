@@ -38,7 +38,7 @@ class RecordingAudioViewController: UIViewController {
                     if allowed {
                         print("Allowed")
                     } else {
-                        self.dismiss(animated: true, completion: nil)
+                        //self.dismiss(animated: true, completion: nil)
                     }
                 }
             }

@@ -77,10 +77,13 @@ class PDFViewController: UIViewController, UIPageViewControllerDelegate, UIPageV
 			}
 			else {
 				viewControllers = [firstPageViewController]
+                firstPageViewController.navigationController?.setNavigationBarHidden(true, animated: true)
 			}
 		}
 		else {
-			viewControllers = [firstPageViewController]
+            viewControllers = [firstPageViewController]
+            firstPageViewController.navigationController?.setNavigationBarHidden(true, animated: true)
+            
 		}
 
 		// Setup Page View Controller
