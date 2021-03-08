@@ -38,7 +38,6 @@ extension LGSideViewController {
         self.rootViewController = self.rootVC
         self.rightViewController = self.rightVC
         self.rightViewWidth = 250
-//        self.rightViewPresentationStyle = .slideBelow
     }
      
     func localized() {

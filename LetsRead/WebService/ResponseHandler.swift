@@ -24,12 +24,8 @@ class ResponseHandler {
                     debugPrint("Methods: \(request.method.rawValue)")
                     debugPrint("Response: \(json.dictionaryValue)")
                     debugPrint("************************* Request *************************")
-//                    if json["status"].boolValue == true {
                         success(json)
-//                    } else {
-//                        let error = NSError.init(domain: json["message"].stringValue, code: json["code"].intValue, userInfo: nil)
-//                        failure(error)
-//                    }
+
                 } catch(let error) {
                     debugPrint(error.localizedDescription)
                     failure(error)

@@ -19,7 +19,6 @@ class RequestBuilder {
     static var headers: HTTPHeaders {
         let dic: HTTPHeaders = ["token": UserProfile.shared.userToken ?? "",
                                     "Accept":"application/json"]
-        
         let method: HTTPMethod = .post
         return dic
     }

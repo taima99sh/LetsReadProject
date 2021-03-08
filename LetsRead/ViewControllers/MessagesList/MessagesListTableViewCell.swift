@@ -25,10 +25,10 @@ class MessagesListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+
     func configureCell() {
         if let obj = object {
-            self.lblDate.text = (obj.createdAt ?? "").toDate(customFormat: "yyyy-MM-dd'T'HH:mm:ssZ").toString(customFormat: "MMM d, h:mm a")
+            self.lblDate.text = (obj.createdAt ?? "")
             self.lblSender.text = obj.senderName ?? ""
             self.lblMessage.text = obj.body ?? ""
         }

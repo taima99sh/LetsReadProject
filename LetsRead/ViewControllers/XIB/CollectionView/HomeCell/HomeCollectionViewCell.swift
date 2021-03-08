@@ -35,18 +35,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBAction func btnListen(_ sender: Any) {
         if let obj = object {
             if let parent = self.parentViewController as? HomeViewController {
-                let videoURLString = obj.storyListen ?? ""
-                let urlString = videoURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-                if let url = URL(string: urlString) {
-                    let player = AVPlayer(url: url)
-                      let playerViewController = AVPlayerViewController()
-                      playerViewController.player = player
-                      parent.present(playerViewController, animated: true) {
-                        player.play()
-                      }
-                }
+                let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "TaskViewController") as! TaskViewController
+                vc.task = obj
+                vc.type = .listen
+                parent.navigationController?.pushViewController(vc, animated: true)
             }
         }
+
     }
     
     @IBAction func btnRead(_ sender: Any) {
@@ -54,18 +49,19 @@ class HomeCollectionViewCell: UICollectionViewCell {
             if let parent = self.parentViewController as? HomeViewController {
                 let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "TaskViewController") as! TaskViewController
                 vc.task = obj
+                vc.type = .read
                 parent.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
     
     @IBAction func btnQuestions(_ sender: Any) {
+        
         if let obj = object {
             if let parent = self.parentViewController as? HomeViewController {
-                let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "QuestionsViewController") as! QuestionsViewController
-                vc.storyId = "\(obj.tsStory ?? 0)"
-                vc.taskId = "\(obj.tsId ?? 0)"
-                vc.questionArr = obj.questions ?? []
+                let vc = UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: "TaskViewController") as! TaskViewController
+                vc.task = obj
+                vc.type = .questions
                 parent.navigationController?.pushViewController(vc, animated: true)
             }
         }

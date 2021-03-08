@@ -12,7 +12,6 @@ import UIKit
 extension UITabBar {
    @IBInspectable var  isShowOriginalColors: Bool{
         set {
-            // الشحطة بدل الاندكس لانو مش محتاجينها
             for (_, item) in (self.items ?? []).enumerated() {
              let img =   item.selectedImage?.withRenderingMode(.alwaysOriginal)
                 item.selectedImage = newValue == true ? img : self.shadowImage

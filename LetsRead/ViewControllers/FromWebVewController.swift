@@ -26,6 +26,10 @@ class FromWebVewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    @IBAction func btnSideMenu(_ sender: Any) {
+        self.toggleRightViewAnimated(self)
+    }
 }
 extension FromWebVewController {
     func setupView(){}

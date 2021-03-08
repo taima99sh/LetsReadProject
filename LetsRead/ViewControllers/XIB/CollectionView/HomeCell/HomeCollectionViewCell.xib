@@ -15,21 +15,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCollectionViewCell" id="gTV-IL-0wX" customClass="HomeCollectionViewCell" customModule="LetsRead" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="709" height="250"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCollectionViewCell" id="gTV-IL-0wX" customClass="HomeCollectionViewCell" customModule="يلا_نقرأ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="243"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="709" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="360" height="243"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5H0-p0-k4z">
-                        <rect key="frame" x="0.0" y="0.0" width="709" height="250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="243"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WFC-13-2ai">
-                                <rect key="frame" x="0.0" y="0.0" width="709" height="250"/>
+                                <rect key="frame" x="0.0" y="0.0" width="360" height="243"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tcG-fi-0QU">
-                                        <rect key="frame" x="0.0" y="0.0" width="709" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="32"/>
                                         <color key="backgroundColor" name="primaryColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="3xd-dw-z7Y"/>
@@ -44,19 +44,19 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FMZ-8m-NCg">
-                                        <rect key="frame" x="0.0" y="42" width="709" height="208"/>
+                                        <rect key="frame" x="0.0" y="42" width="360" height="201"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o48-nv-v1p">
-                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="208"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="201"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="eD8-B4-ygj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="208"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="201"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRO-n9-NP6">
-                                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="65.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="63"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listenImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZNI-Ex-jI0">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="65.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="63"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="استمع" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7u4-8k-ZNW">
                                                                         <rect key="frame" x="39.5" y="6" width="36" height="19"/>
@@ -65,7 +65,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEW-05-v6l">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="65.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="63"/>
                                                                         <connections>
                                                                             <action selector="btnListen:" destination="gTV-IL-0wX" eventType="touchUpInside" id="9Nb-DA-RCN"/>
                                                                         </connections>
@@ -91,10 +91,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSC-Rn-X5Y">
-                                                                <rect key="frame" x="0.0" y="71.5" width="81.5" height="65"/>
+                                                                <rect key="frame" x="0.0" y="69" width="81.5" height="63"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="readImage" translatesAutoresizingMaskIntoConstraints="NO" id="qMD-zW-E9c">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="65"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="63"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اقرأ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qyc-Dl-VQh">
                                                                         <rect key="frame" x="55" y="6" width="20.5" height="19"/>
@@ -115,10 +115,10 @@
                                                                     <constraint firstAttribute="bottom" secondItem="qMD-zW-E9c" secondAttribute="bottom" id="P6Q-my-JUa"/>
                                                                     <constraint firstItem="qyc-Dl-VQh" firstAttribute="top" secondItem="WSC-Rn-X5Y" secondAttribute="top" constant="6" id="SWV-Dz-AUo"/>
                                                                     <constraint firstItem="qMD-zW-E9c" firstAttribute="leading" secondItem="WSC-Rn-X5Y" secondAttribute="leading" id="ezU-aS-v4G"/>
-                                                                    <constraint firstAttribute="width" secondItem="WSC-Rn-X5Y" secondAttribute="height" multiplier="268.47:215.15" id="sG2-h1-bqT"/>
                                                                     <constraint firstItem="qMD-zW-E9c" firstAttribute="top" secondItem="WSC-Rn-X5Y" secondAttribute="top" id="trw-Rl-6Yr"/>
                                                                     <constraint firstAttribute="trailing" secondItem="qMD-zW-E9c" secondAttribute="trailing" id="wsm-jI-X72"/>
                                                                     <constraint firstAttribute="trailing" secondItem="qyc-Dl-VQh" secondAttribute="trailing" constant="6" id="wvA-0R-LWL"/>
+                                                                    <constraint firstAttribute="width" constant="81.5" id="ymw-cP-mbN"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -127,10 +127,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwW-p7-MA0">
-                                                                <rect key="frame" x="0.0" y="142.5" width="81.5" height="65.5"/>
+                                                                <rect key="frame" x="0.0" y="138" width="81.5" height="63"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionsImage" translatesAutoresizingMaskIntoConstraints="NO" id="9Nc-ze-sMJ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="65.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="81.5" height="63"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الأسئلة" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7jB-nK-D8Z">
                                                                         <rect key="frame" x="36.5" y="6" width="39" height="19"/>
@@ -166,7 +166,7 @@
                                                 </subviews>
                                             </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StoryImage" translatesAutoresizingMaskIntoConstraints="NO" id="c3z-gg-pGw">
-                                                <rect key="frame" x="101.5" y="0.0" width="607.5" height="208"/>
+                                                <rect key="frame" x="101.5" y="0.0" width="258.5" height="201"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -190,7 +190,7 @@
                 <constraint firstAttribute="bottom" secondItem="5H0-p0-k4z" secondAttribute="bottom" id="tGm-B9-8FO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="709" height="480"/>
+            <size key="customSize" width="360" height="473"/>
             <connections>
                 <outlet property="imgStory" destination="c3z-gg-pGw" id="lPe-Qg-uqm"/>
                 <outlet property="lblTitle" destination="tcG-fi-0QU" id="Ghx-fq-PO0"/>
@@ -198,7 +198,7 @@
                 <outlet property="questionView" destination="SwW-p7-MA0" id="PGj-ev-08w"/>
                 <outlet property="readView" destination="WSC-Rn-X5Y" id="dYo-Zw-Zss"/>
             </connections>
-            <point key="canvasLocation" x="-536.95652173913049" y="291.96428571428572"/>
+            <point key="canvasLocation" x="-789.85507246376812" y="288.95089285714283"/>
         </collectionViewCell>
     </objects>
     <resources>

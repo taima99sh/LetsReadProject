@@ -8,13 +8,11 @@ class PDFDocumentController {
 	private var fileURL: URL
 	private var password: String?
 	private var pageBackgroundColor: UIColor
-	
 	private var _document: CGPDFDocument?
 	private var document: CGPDFDocument? {
 		if self._document != nil {
 			return self._document 
 		}
-
 		// Read PDF File
 		if let document = CGPDFDocument(self.fileURL as CFURL) {
 			if document.isEncrypted {
@@ -22,13 +20,11 @@ class PDFDocumentController {
 					_ = document.unlockWithPassword($0)
 				}
 			}
-			
 			if document.isUnlocked {
 				self._document = document
 				return document
 			}
 		}
-		
 		return nil
 	}
 	
@@ -113,7 +109,6 @@ class PDFDocumentController {
 	var emptyPageViewController: PDFPageViewController {
 		return PDFPageViewController(page: nil, box: self.box, backgroundColor: UIColor.clear)
 	}
-	
 	// MARK: - Clear Cache
 	func clearCache() {
 		self.viewControllerCache = [:]

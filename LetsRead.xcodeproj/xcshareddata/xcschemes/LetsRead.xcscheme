@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A64F45C625E4E1D200A25654"
-               BuildableName = "LetsRead.app"
+               BuildableName = "&#x64a;&#x644;&#x627; &#x646;&#x642;&#x631;&#x627;&#x654;.app"
                BlueprintName = "LetsRead"
                ReferencedContainer = "container:LetsRead.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A64F45C625E4E1D200A25654"
-            BuildableName = "LetsRead.app"
+            BuildableName = "&#x64a;&#x644;&#x627; &#x646;&#x642;&#x631;&#x627;&#x654;.app"
             BlueprintName = "LetsRead"
             ReferencedContainer = "container:LetsRead.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A64F45C625E4E1D200A25654"
-            BuildableName = "LetsRead.app"
+            BuildableName = "&#x64a;&#x644;&#x627; &#x646;&#x642;&#x631;&#x627;&#x654;.app"
             BlueprintName = "LetsRead"
             ReferencedContainer = "container:LetsRead.xcodeproj">
          </BuildableReference>

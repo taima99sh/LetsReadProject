@@ -27,6 +27,10 @@ class MessagesListViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    @IBAction func btnSideMenu(_ sender: Any) {
+        self.toggleRightViewAnimated(self)
+    }
+    
     @IBAction func btnSend(_ sender: Any) {
     }
 }
@@ -36,7 +40,6 @@ extension MessagesListViewController {
         self.tableView.dataSource = self
     }
     func getMessages() {
-
         let request = BaseRequest()
         let stId = UserProfile.shared.userID ?? 0
         request.url = "messages?st_id=\(stId)"

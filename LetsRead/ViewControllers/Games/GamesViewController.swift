@@ -27,6 +27,10 @@ class GamesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    @IBAction func btnSideMenu(_ sender: Any) {
+        self.toggleRightViewAnimated(self)
+    }
 }
 extension GamesViewController {
     func setupView(){
@@ -80,7 +84,6 @@ extension GamesViewController: UICollectionViewDelegate, UICollectionViewDataSou
 extension GamesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //let height: CGFloat = 165
         let width: CGFloat = (UIScreen.main.bounds.size.width - ( 30 + 30 + 30 )) / 2
             return CGSize.init(width: width, height: 180)
     }

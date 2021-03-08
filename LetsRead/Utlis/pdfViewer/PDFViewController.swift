@@ -3,6 +3,7 @@ import UIKit
 class PDFViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate {
 
 	// MARK: - Property
+    var viewControllers = [PDFPageViewController]()
 	private var pdfDocumentController: PDFDocumentController!
 	private var hasCoverPage = false
 	private var layoutMargin = PDFLayoutMargin.zero
@@ -15,7 +16,7 @@ class PDFViewController: UIViewController, UIPageViewControllerDelegate, UIPageV
 	private weak var pageViewTrailingConstraint: NSLayoutConstraint!
 	private weak var pageViewTopConstraint: NSLayoutConstraint!
 	private weak var pageViewBottomConstraint: NSLayoutConstraint!
-    var lang: Int = 1
+    private var lang: Int = 1
 
 	private var isTransitioning = false
 
@@ -68,7 +69,7 @@ class PDFViewController: UIViewController, UIPageViewControllerDelegate, UIPageV
 		self.scrollView = scrollView
 		
 		// Get Initial View Controllers
-		var viewControllers = [PDFPageViewController]()
+		
 		let firstPageViewController = self.pdfDocumentController.pageViewController(at: 1)!
 		if UIApplication.shared.statusBarOrientation.isLandscape && self.pdfDocumentController.numberOfPages != 1 {
 			if self.hasCoverPage {

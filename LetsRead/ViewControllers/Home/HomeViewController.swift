@@ -81,6 +81,10 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    @IBAction func btnSideMenu(_ sender: Any) {
+        self.toggleRightViewAnimated(self)
+    }
+    
     @IBAction func btnPastTasks(_ sender: Any) {
         self.type = .pastTasks
         self.collectionArr = previous

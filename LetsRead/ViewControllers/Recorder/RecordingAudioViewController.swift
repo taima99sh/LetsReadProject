@@ -20,12 +20,10 @@ class RecordingAudioViewController: UIViewController {
     @IBOutlet weak var playbackSlider: UISlider!
     @IBOutlet weak var lblOverallDuration: UILabel!
     
-    
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
     var recordingSession: AVAudioSession!
     var whistleRecorder: AVAudioRecorder!
-    var whistlePlayer: AVAudioPlayer!
     var audioPlayer: AVAudioPlayer?
 
     override func viewDidLoad() {
@@ -88,7 +86,7 @@ extension RecordingAudioViewController {
                 let time : Float64 = CMTimeGetSeconds(self.player!.currentTime());
                 self.playbackSlider.value = Float ( time );
             }
-            
+            //
             let playbackLikelyToKeepUp = self.player?.currentItem?.isPlaybackLikelyToKeepUp
             if playbackLikelyToKeepUp == false{
                 print("IsBuffering")
@@ -97,7 +95,6 @@ extension RecordingAudioViewController {
             }
         }
     }
-    func fetchData(){}
     
     
     class func getDocumentsDirectory() -> URL {
@@ -228,7 +225,6 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
     }
     
     // SLIDER FUNCTION
-
     @objc func playbackSliderValueChanged(_ playbackSlider:UISlider)
     {
         let seconds : Int64 = Int64(playbackSlider.value)
@@ -241,14 +237,13 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
             player?.play()
         }
     }
-    
     //
     func stringFromTimeInterval(interval: TimeInterval) -> String {
         
         let interval = Int(interval)
         let seconds = interval % 60
         let minutes = (interval / 60) % 60
-        let hours = (interval / 3600)
+        //let hours = (interval / 3600)
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
@@ -272,11 +267,6 @@ extension RecordingAudioViewController: AVAudioRecorderDelegate {
         }
             return nil
     }
-    
-    
-
-    
-    
 }
 
 

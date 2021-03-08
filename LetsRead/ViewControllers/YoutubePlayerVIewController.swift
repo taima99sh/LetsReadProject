@@ -33,6 +33,10 @@ class YoutubePlayerVIewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    @IBAction func btnSideMenu(_ sender: Any) {
+        self.toggleRightViewAnimated(self)
+    }
 }
 extension YoutubePlayerVIewController {
     func setupView(){}

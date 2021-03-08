@@ -340,3 +340,176 @@ class TripStory : NSObject, NSCoding{
 
     }
 }
+
+class paintModel : NSObject, NSCoding{
+
+    var success : Bool!
+    var code : Int!
+    var message : String!
+    var paints : [Paint]!
+
+    /**
+     * Instantiate the instance using the passed json values to set the properties values
+     */
+    init(fromJson json: JSON!){
+        if json.isEmpty{
+            return
+        }
+        success = json["Success"].boolValue
+        code = json["code"].intValue
+        message = json["message"].stringValue
+        paints = [Paint]()
+        let paintsArray = json["paints"].arrayValue
+        for paintsJson in paintsArray{
+            let value = Paint(fromJson: paintsJson)
+            paints.append(value)
+        }
+    }
+
+    /**
+     * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
+     */
+    func toDictionary() -> [String:Any]
+    {
+        var dictionary = [String:Any]()
+        if success != nil{
+            dictionary["Success"] = success
+        }
+        if code != nil{
+            dictionary["code"] = code
+        }
+        if message != nil{
+            dictionary["message"] = message
+        }
+        if paints != nil{
+            var dictionaryElements = [[String:Any]]()
+            for paintsElement in paints {
+                dictionaryElements.append(paintsElement.toDictionary())
+            }
+            dictionary["paints"] = dictionaryElements
+        }
+        return dictionary
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         success = aDecoder.decodeObject(forKey: "Success") as? Bool
+         code = aDecoder.decodeObject(forKey: "code") as? Int
+         message = aDecoder.decodeObject(forKey: "message") as? String
+         paints = aDecoder.decodeObject(forKey: "paints") as? [Paint]
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    func encode(with aCoder: NSCoder)
+    {
+        if success != nil{
+            aCoder.encode(success, forKey: "Success")
+        }
+        if code != nil{
+            aCoder.encode(code, forKey: "code")
+        }
+        if message != nil{
+            aCoder.encode(message, forKey: "message")
+        }
+        if paints != nil{
+            aCoder.encode(paints, forKey: "paints")
+        }
+
+    }
+
+}
+
+class Paint : NSObject, NSCoding{
+
+    var paintDeleted : Int!
+    var paintHtml : String!
+    var paintId : Int!
+    var paintImg : String!
+    var paintTitle : String!
+
+
+    /**
+     * Instantiate the instance using the passed json values to set the properties values
+     */
+    init(fromJson json: JSON!){
+        if json.isEmpty{
+            return
+        }
+        paintDeleted = json["paint_deleted"].intValue
+        paintHtml = json["paint_html"].stringValue
+        paintId = json["paint_id"].intValue
+        paintImg = json["paint_img"].stringValue
+        paintTitle = json["paint_title"].stringValue
+    }
+
+    /**
+     * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
+     */
+    func toDictionary() -> [String:Any]
+    {
+        var dictionary = [String:Any]()
+        if paintDeleted != nil{
+            dictionary["paint_deleted"] = paintDeleted
+        }
+        if paintHtml != nil{
+            dictionary["paint_html"] = paintHtml
+        }
+        if paintId != nil{
+            dictionary["paint_id"] = paintId
+        }
+        if paintImg != nil{
+            dictionary["paint_img"] = paintImg
+        }
+        if paintTitle != nil{
+            dictionary["paint_title"] = paintTitle
+        }
+        return dictionary
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    @objc required init(coder aDecoder: NSCoder)
+    {
+         paintDeleted = aDecoder.decodeObject(forKey: "paint_deleted") as? Int
+         paintHtml = aDecoder.decodeObject(forKey: "paint_html") as? String
+         paintId = aDecoder.decodeObject(forKey: "paint_id") as? Int
+         paintImg = aDecoder.decodeObject(forKey: "paint_img") as? String
+         paintTitle = aDecoder.decodeObject(forKey: "paint_title") as? String
+
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    func encode(with aCoder: NSCoder)
+    {
+        if paintDeleted != nil{
+            aCoder.encode(paintDeleted, forKey: "paint_deleted")
+        }
+        if paintHtml != nil{
+            aCoder.encode(paintHtml, forKey: "paint_html")
+        }
+        if paintId != nil{
+            aCoder.encode(paintId, forKey: "paint_id")
+        }
+        if paintImg != nil{
+            aCoder.encode(paintImg, forKey: "paint_img")
+        }
+        if paintTitle != nil{
+            aCoder.encode(paintTitle, forKey: "paint_title")
+        }
+
+    }
+
+}

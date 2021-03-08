@@ -15,6 +15,9 @@ class QuestionsViewController: UIViewController {
     @IBOutlet weak var txtAnswer: UITextView!
     @IBOutlet weak var txtStackView: UIStackView!
     @IBOutlet weak var btnSpeaker: UIButton!
+    @IBOutlet weak var btnPre: UIButton!
+    @IBOutlet weak var btnNext: UIButton!
+    @IBOutlet weak var btnSaveTextAnswer: UIButton!
     
     var isAnswered: Bool = false
     var audioPlayer: AVAudioPlayer?
@@ -38,24 +41,33 @@ class QuestionsViewController: UIViewController {
             //self.audioPlayer?.play()
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        localized()
-       // getQuestion(self.arrIndex)
-        //setupData()
-        //fetchData()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.audioPlayer?.play()
         self.answersDic.removeAll()
     }
     
     @IBAction func btnSpeaker(_ sender: Any) {
         isBtnSelect = !isBtnSelect
+    }
+    
+    @IBAction func btnNext(_ sender: Any) {
+        guard !(arrIndex == self.questionArr.count) else {return}
+        self.arrIndex += 1
+        self.audioPlayer?.stop()
+        self.getQuestion(self.arrIndex)
+    }
+    
+    @IBAction func btnPre(_ sender: Any) {
+        self.arrIndex -= 1
+        self.audioPlayer?.stop()
+        self.getQuestion(self.arrIndex)
     }
     
     @IBAction func btnSaveTextAnswer(_ sender: Any) {
@@ -66,21 +78,26 @@ class QuestionsViewController: UIViewController {
         self.txtAnswer.text = ""
         self.getQuestion(self.arrIndex)
     }
-    
 }
 extension QuestionsViewController {
     func setupView(){
+        self.btnPre.isHidden = true
+        self.btnNext.isHidden = true
         checkIfAnswered()
-        
         self.isBtnSelect = true
         //collectionView.isHidden = true
         txtStackView.isHidden = true
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
     }
-    func localized(){}
+    
     func getQuestion(_ index: Int){
         if self.arrIndex < questionArr.count {
+            self.btnNext.isHidden = questionArr.count == 1 ? true : false
+            self.btnPre.isHidden = arrIndex == 0 ? true : false
+            //self.btnNext.setTitle(arrIndex == questionArr.count - 1 ? "إرسال" : "", for: .normal)
+            //self.btnNext.setImage(arrIndex == questionArr.count - 1 ? UIImage() : UIImage(systemName: "arrow.right"), for: .normal)
+            self.btnNext.isHidden = arrIndex == questionArr.count - 1 ? true : false
             let question = self.questionArr[index]
             if question.qaType == "Multiple" || question.qaType == "0"   {
                 self.lblTitle.text = question.qaQ ?? ""
@@ -111,6 +128,10 @@ extension QuestionsViewController {
     }
     func sendAnswers(){
         guard !self.isAnswered else {return}
+        guard answersDic.count == self.questionArr.count else {
+            self.showErrorAlert(message: "هناك أسئلة غير مجاب عنها")
+            return
+        }
         let stId = UserProfile.shared.userID ?? 0
         var postParameters = "answerQuestions?st_id=\(stId)&story_id=\(storyId)&task_id=\(taskId)"
         for (key, value) in self.answersDic {
@@ -168,6 +189,7 @@ extension QuestionsViewController {
                     self.SuccessMessage(title: "", successbody: "قمت بحل هذه الأسئلة سابقاً")
                       self.isAnswered = data.found
                     self.txtAnswer.isEditable = false
+                    self.btnSaveTextAnswer.isHidden = true
                     self.getAnswers()
                        self.collectionView.reloadData()
                        return
@@ -223,6 +245,10 @@ extension QuestionsViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         cell.configureCell()
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        self.isAnswered ? false : true
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

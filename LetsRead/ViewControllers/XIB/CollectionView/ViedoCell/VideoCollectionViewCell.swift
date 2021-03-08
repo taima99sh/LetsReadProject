@@ -14,8 +14,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imgVideo: UIImageView!
     @IBOutlet weak var playerView: UIView!
     
-    var object: Video?
-    var gameObject: Game?
+    var object: Any?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,13 +22,20 @@ class VideoCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell() {
-        if let obj = self.object {
+        if let obj = self.object as? Video {
             playerView.isHidden = false
             self.lblTitle.text = obj.videoTitle ?? ""
             let url = (obj.videoImg ?? "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             self.imgVideo.LoadImageFromUrl(url: obj.videoImg ?? "")
         }
-        if let obj = gameObject {
+        if let obj = self.object as? Paint {
+            playerView.isHidden = true
+            self.lblTitle.text = obj.paintTitle ?? ""
+            let url = (obj.paintImg ?? "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            self.imgVideo.LoadImageFromUrl(url: url)
+        }
+        
+        if let obj = self.object as? Game  {
             playerView.isHidden = true
             self.lblTitle.text = obj.gameTitle ?? ""
             let url = (obj.gameImg ?? "").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""

@@ -55,6 +55,7 @@
 		A64F469425E6C92A00A25654 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64F469225E6C92A00A25654 /* MenuTableViewCell.xib */; };
 		A64F469725E7415500A25654 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F469625E7415400A25654 /* TaskViewController.swift */; };
 		A64F469A25E7463D00A25654 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64F469925E7463D00A25654 /* Downloader.swift */; };
+		A659DC6125F5BBF2008CEB5C /* PaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A659DC6025F5BBF2008CEB5C /* PaintViewController.swift */; };
 		A65B448B25EE37D600410B17 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B448A25EE37D600410B17 /* GamesViewController.swift */; };
 		A65B448D25EE569400410B17 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65B448C25EE569400410B17 /* TripModel.swift */; };
 		A6AD5A1A25EB0342008B80CA /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AD5A1425EB0341008B80CA /* BaseRequest.swift */; };
@@ -89,7 +90,6 @@
 		A6F36B9925F0D9E80084FC6D /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B8A25F0D9E70084FC6D /* UIButtonExtension.swift */; };
 		A6F36B9A25F0D9E80084FC6D /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B8B25F0D9E80084FC6D /* Localizable.swift */; };
 		A6F36B9B25F0D9E80084FC6D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B8C25F0D9E80084FC6D /* UIImageViewExtension.swift */; };
-		A6F36B9C25F0D9E80084FC6D /* DashedLineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B8D25F0D9E80084FC6D /* DashedLineExtension.swift */; };
 		A6F36B9D25F0D9E80084FC6D /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B8E25F0D9E80084FC6D /* UITextViewExtension.swift */; };
 		A6F36B9E25F0D9E80084FC6D /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B8F25F0D9E80084FC6D /* UINavigationBarExtension.swift */; };
 		A6F36B9F25F0D9E80084FC6D /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F36B9025F0D9E80084FC6D /* UITextFieldExtension.swift */; };
@@ -161,6 +161,7 @@
 		A64F469225E6C92A00A25654 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		A64F469625E7415400A25654 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		A64F469925E7463D00A25654 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		A659DC6025F5BBF2008CEB5C /* PaintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintViewController.swift; sourceTree = "<group>"; };
 		A65B448A25EE37D600410B17 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		A65B448C25EE569400410B17 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
 		A6AD5A1425EB0341008B80CA /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
@@ -200,7 +201,6 @@
 		A6F36B8A25F0D9E70084FC6D /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A6F36B8B25F0D9E80084FC6D /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		A6F36B8C25F0D9E80084FC6D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
-		A6F36B8D25F0D9E80084FC6D /* DashedLineExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashedLineExtension.swift; sourceTree = "<group>"; };
 		A6F36B8E25F0D9E80084FC6D /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		A6F36B8F25F0D9E80084FC6D /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
 		A6F36B9025F0D9E80084FC6D /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -382,7 +382,6 @@
 				A64F469525E7413E00A25654 /* Task */,
 				A64F468D25E6BD5E00A25654 /* Menu */,
 				A64F460425E4F64300A25654 /* XIB */,
-				A64F460B25E504AB00A25654 /* HomeViewController.swift */,
 				A64F467225E65B7E00A25654 /* MainNavigationViewController.swift */,
 				A64F468B25E6BBF300A25654 /* LGSideViewController.swift */,
 				A60D8A5025E7B57300070783 /* YoutubePlayerVIewController.swift */,
@@ -536,6 +535,7 @@
 		A6F36B5725EFCA8C0084FC6D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A64F460B25E504AB00A25654 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -544,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				A6F36B5925F0BF510084FC6D /* TripViewController.swift */,
+				A659DC6025F5BBF2008CEB5C /* PaintViewController.swift */,
 			);
 			path = Trip;
 			sourceTree = "<group>";
@@ -560,7 +561,6 @@
 		A6F36B6025F0D9570084FC6D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A6F36B8D25F0D9E80084FC6D /* DashedLineExtension.swift */,
 				A6F36B8325F0D9E70084FC6D /* DateExtension.swift */,
 				A6F36B9125F0D9E80084FC6D /* DPImageView+LettersExtension.swift */,
 				A6F36B8825F0D9E70084FC6D /* HexColorExtension.swift */,
@@ -713,9 +713,9 @@
 			files = (
 				A6F36B5425EFA54B0084FC6D /* MessagesListViewController.swift in Sources */,
 				A60D8A4A25E789E900070783 /* QuestionsViewController.swift in Sources */,
-				A6F36B9C25F0D9E80084FC6D /* DashedLineExtension.swift in Sources */,
 				A64F462425E51E0500A25654 /* PDFViewController.swift in Sources */,
 				A64F460C25E504AB00A25654 /* HomeViewController.swift in Sources */,
+				A659DC6125F5BBF2008CEB5C /* PaintViewController.swift in Sources */,
 				A64F467625E672EC00A25654 /* GeneralTableView.swift in Sources */,
 				A64F45CF25E4E1D200A25654 /* ViewController.swift in Sources */,
 				A64F469A25E7463D00A25654 /* Downloader.swift in Sources */,
